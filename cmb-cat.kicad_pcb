@@ -21360,7 +21360,7 @@
 			)
 		)
 		(path "/00000000-0000-0000-0000-00005e3b2f75")
-		(sheetfile "CM4IOv5.kicad_sch")
+		(sheetfile "cmb-cat.kicad_sch")
 		(attr exclude_from_pos_files)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -21519,7 +21519,7 @@
 			)
 		)
 		(path "/00000000-0000-0000-0000-00005e3b2cb2")
-		(sheetfile "CM4IOv5.kicad_sch")
+		(sheetfile "cmb-cat.kicad_sch")
 		(attr exclude_from_pos_files)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -21678,7 +21678,7 @@
 			)
 		)
 		(path "/00000000-0000-0000-0000-00005e3b25a9")
-		(sheetfile "CM4IOv5.kicad_sch")
+		(sheetfile "cmb-cat.kicad_sch")
 		(attr exclude_from_pos_files)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -21837,7 +21837,7 @@
 			)
 		)
 		(path "/00000000-0000-0000-0000-00005e3b1a1d")
-		(sheetfile "CM4IOv5.kicad_sch")
+		(sheetfile "cmb-cat.kicad_sch")
 		(attr exclude_from_pos_files)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -21996,7 +21996,7 @@
 			)
 		)
 		(path "/00000000-0000-0000-0000-00005e3b32fa")
-		(sheetfile "CM4IOv5.kicad_sch")
+		(sheetfile "cmb-cat.kicad_sch")
 		(attr exclude_from_pos_files)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -22155,7 +22155,7 @@
 			)
 		)
 		(path "/00000000-0000-0000-0000-00005e3b3330")
-		(sheetfile "CM4IOv5.kicad_sch")
+		(sheetfile "cmb-cat.kicad_sch")
 		(attr exclude_from_pos_files)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -22314,7 +22314,7 @@
 			)
 		)
 		(path "/00000000-0000-0000-0000-00005e3b331e")
-		(sheetfile "CM4IOv5.kicad_sch")
+		(sheetfile "cmb-cat.kicad_sch")
 		(attr exclude_from_pos_files)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle
@@ -22473,7 +22473,7 @@
 			)
 		)
 		(path "/00000000-0000-0000-0000-00005e3b330c")
-		(sheetfile "CM4IOv5.kicad_sch")
+		(sheetfile "cmb-cat.kicad_sch")
 		(attr exclude_from_pos_files)
 		(duplicate_pad_numbers_are_jumpers no)
 		(fp_circle

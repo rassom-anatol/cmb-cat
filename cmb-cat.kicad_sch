@@ -837,7 +837,7 @@
 			)
 		)
 		(instances
-			(project "CM4IOv5"
+			(project "cmb-cat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "H4")
 					(unit 1)
@@ -966,7 +966,7 @@
 			)
 		)
 		(instances
-			(project "CM4IOv5"
+			(project "cmb-cat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "H3")
 					(unit 1)
@@ -1095,7 +1095,7 @@
 			)
 		)
 		(instances
-			(project "CM4IOv5"
+			(project "cmb-cat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "H2")
 					(unit 1)
@@ -1224,7 +1224,7 @@
 			)
 		)
 		(instances
-			(project "CM4IOv5"
+			(project "cmb-cat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "H1")
 					(unit 1)
@@ -1353,7 +1353,7 @@
 			)
 		)
 		(instances
-			(project "CM4IOv5"
+			(project "cmb-cat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "H5")
 					(unit 1)
@@ -1482,7 +1482,7 @@
 			)
 		)
 		(instances
-			(project "CM4IOv5"
+			(project "cmb-cat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "H8")
 					(unit 1)
@@ -1611,7 +1611,7 @@
 			)
 		)
 		(instances
-			(project "CM4IOv5"
+			(project "cmb-cat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "H7")
 					(unit 1)
@@ -1740,7 +1740,7 @@
 			)
 		)
 		(instances
-			(project "CM4IOv5"
+			(project "cmb-cat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(reference "H6")
 					(unit 1)
@@ -1897,7 +1897,7 @@
 			)
 		)
 		(instances
-			(project "CM4IOv5"
+			(project "cmb-cat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(page "5")
 				)
@@ -2143,7 +2143,7 @@
 			)
 		)
 		(instances
-			(project "CM4IOv5"
+			(project "cmb-cat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(page "4")
 				)
@@ -2209,7 +2209,7 @@
 			)
 		)
 		(instances
-			(project "CM4IOv5"
+			(project "cmb-cat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(page "7")
 				)
@@ -2315,7 +2315,7 @@
 			)
 		)
 		(instances
-			(project "CM4IOv5"
+			(project "cmb-cat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(page "2")
 				)
@@ -2421,7 +2421,7 @@
 			)
 		)
 		(instances
-			(project "CM4IOv5"
+			(project "cmb-cat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(page "3")
 				)
@@ -2557,7 +2557,7 @@
 			)
 		)
 		(instances
-			(project "CM4IOv5"
+			(project "cmb-cat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(page "6")
 				)

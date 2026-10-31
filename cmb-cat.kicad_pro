@@ -630,7 +630,7 @@
     "pinned_symbol_libs": []
   },
   "meta": {
-    "filename": "CM4IOv5.kicad_pro",
+    "filename": "cmb-cat.kicad_pro",
     "version": 3
   },
   "net_settings": {
@@ -1218,8 +1218,8 @@
     "subpart_id_separator": 0,
     "top_level_sheets": [
       {
-        "filename": "CM4IOv5.kicad_sch",
-        "name": "CM4IOv5",
+        "filename": "cmb-cat.kicad_sch",
+        "name": "cmb-cat",
         "uuid": "e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
       }
     ],
@@ -1229,7 +1229,7 @@
   "sheets": [
     [
       "e63e39d7-6ac0-4ffd-8aa3-1841a4541b55",
-      "CM4IOv5"
+      "cmb-cat"
     ],
     [
       "00000000-0000-0000-0000-00005e072e02",
