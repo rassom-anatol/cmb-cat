@@ -1,3 +1,5 @@
 (sym_lib_table
-  (lib (name "CM4IO")(type "KiCad")(uri "${KIPRJMOD}/CM4IO.kicad_sym")(options "")(descr ""))
+	(version 7)
+	(lib (name "CM4IO") (type "KiCad") (uri "${KIPRJMOD}/CM4IO.kicad_sym") (options "") (descr ""))
+	(lib (name "cmb-cat") (type "KiCad") (uri "${KIPRJMOD}/cmb-cat.kicad_sym") (options "") (descr ""))
 )

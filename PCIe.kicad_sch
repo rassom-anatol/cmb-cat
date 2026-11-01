@@ -7,8 +7,8 @@
 	(title_block
 		(title "Compute Module 4 IO Board - PCIe")
 		(rev "1")
-		(company "© 2020-2022 Raspberry Pi Ltd (formerly Raspberry Pi (Trading) Ltd.)")
-		(comment 1 "www.raspberrypi.com")
+		(company "© 2018-2026 Cortexware")
+		(comment 1 "www.cortexware.com")
 	)
 	(lib_symbols
 		(symbol "CM4IO:AP64351"
