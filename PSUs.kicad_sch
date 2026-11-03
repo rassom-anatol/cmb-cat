@@ -2016,10 +2016,10 @@
 		(uuid "3127bfbe-9998-4981-8240-6dbe5c6c4200")
 	)
 	(junction
-		(at 252.857 34.29)
-		(diameter 1.016)
+		(at 252.73 34.29)
+		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "38bef892-3741-43c0-a6af-4a33f7f712a2")
+		(uuid "3914aff4-6d20-4e74-b512-6ef788670412")
 	)
 	(junction
 		(at 219.71 34.29)
@@ -2593,16 +2593,6 @@
 	)
 	(wire
 		(pts
-			(xy 252.857 34.29) (xy 261.62 34.29)
-		)
-		(stroke
-			(width 0)
-			(type solid)
-		)
-		(uuid "51306f00-a514-4657-981d-b3b78519adca")
-	)
-	(wire
-		(pts
 			(xy 138.43 64.77) (xy 143.51 64.77)
 		)
 		(stroke
@@ -2730,6 +2720,16 @@
 			(type default)
 		)
 		(uuid "815d374e-dafa-442a-8815-59918001dd1a")
+	)
+	(wire
+		(pts
+			(xy 252.73 34.29) (xy 261.62 34.29)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "8953a54b-665e-402c-8911-b19bfcb90051")
 	)
 	(wire
 		(pts
@@ -2910,6 +2910,16 @@
 			(type default)
 		)
 		(uuid "a7e9f181-3e67-4519-a420-bc8190b52bb1")
+	)
+	(wire
+		(pts
+			(xy 252.73 41.91) (xy 252.73 44.45)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "a9bba895-70f4-419d-8c94-4c2a4abf66c6")
 	)
 	(wire
 		(pts
@@ -3113,7 +3123,7 @@
 	)
 	(wire
 		(pts
-			(xy 238.76 34.29) (xy 252.857 34.29)
+			(xy 238.76 34.29) (xy 252.73 34.29)
 		)
 		(stroke
 			(width 0)
@@ -3160,16 +3170,6 @@
 			(type default)
 		)
 		(uuid "e7c5d3dc-9ab4-4300-ab45-ce2f56d79e5c")
-	)
-	(wire
-		(pts
-			(xy 252.857 41.91) (xy 252.857 44.45)
-		)
-		(stroke
-			(width 0)
-			(type solid)
-		)
-		(uuid "e8e55658-2028-46d8-a3f7-08a8bc382ca6")
 	)
 	(wire
 		(pts
@@ -4195,7 +4195,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 252.857 44.45 0)
+		(at 252.73 44.45 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4205,7 +4205,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005eb13923")
 		(property "Reference" "#PWR02"
-			(at 252.857 50.8 0)
+			(at 252.73 50.8 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4216,7 +4216,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 252.984 48.8442 0)
+			(at 252.857 48.8442 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4226,7 +4226,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 252.857 44.45 0)
+			(at 252.73 44.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4237,7 +4237,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 252.857 44.45 0)
+			(at 252.73 44.45 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4248,7 +4248,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 252.857 44.45 0)
+			(at 252.73 44.45 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -5055,119 +5055,6 @@
 			(project "cmb-cat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/00000000-0000-0000-0000-00005d31f999"
 					(reference "#PWR047")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "Device:CP")
-		(at 252.857 38.1 0)
-		(unit 1)
-		(body_style 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(in_pos_files yes)
-		(dnp no)
-		(uuid "37be3783-986e-41bc-a074-efadea452183")
-		(property "Reference" "C18"
-			(at 255.8542 36.957 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "100uF"
-			(at 255.8542 39.243 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" "Capacitor_Tantalum_SMD:CP_EIA-7343-31_Kemet-D"
-			(at 253.8222 41.91 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Datasheet" ""
-			(at 252.857 38.1 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Description" ""
-			(at 252.857 38.1 0)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Field4" "Mouser"
-			(at 252.857 38.1 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Field5" "667-EEF-CX0J101R"
-			(at 252.857 38.1 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Part Description" "Capacitor, SP-Cap, 100u, 6.3V, 15mR ESR"
-			(at 252.857 38.1 0)
-			(hide yes)
-			(show_name no)
-			(do_not_autoplace no)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(pin "1"
-			(uuid "6551c37f-9afc-4b25-9b2a-c1739b8edf17")
-		)
-		(pin "2"
-			(uuid "ce87f310-f0ba-406a-b736-4ce38509611a")
-		)
-		(instances
-			(project "cmb-cat"
-				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/00000000-0000-0000-0000-00005d31f999"
-					(reference "C18")
 					(unit 1)
 				)
 			)
@@ -6775,7 +6662,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Capacitor_Tantalum_SMD:CP_EIA-7343-31_Kemet-D"
+		(property "Footprint" "Capacitor_SMD:CP_Elec_6.3x5.9"
 			(at 56.8452 43.18 0)
 			(hide yes)
 			(show_name no)
@@ -6807,7 +6694,7 @@
 				)
 			)
 		)
-		(property "Field4" "Mouser"
+		(property "Field4" "16SVPC100M"
 			(at 55.88 39.37 0)
 			(hide yes)
 			(show_name no)
@@ -6818,7 +6705,7 @@
 				)
 			)
 		)
-		(property "Field5" "667-EEF-CX0J101R"
+		(property "Field5" ""
 			(at 55.88 39.37 0)
 			(hide yes)
 			(show_name no)
@@ -6829,7 +6716,7 @@
 				)
 			)
 		)
-		(property "Part Description" "Capacitor, SP-Cap, 100u, 6.3V, 15mR ESR"
+		(property "Part Description" "  CAP ALUM POLY 100UF 20% 16V SMD"
 			(at 55.88 39.37 0)
 			(hide yes)
 			(show_name no)
@@ -8417,6 +8304,119 @@
 			(project "cmb-cat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/00000000-0000-0000-0000-00005d31f999"
 					(reference "#PWR052")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:CP")
+		(at 252.73 38.1 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "bb49faa6-47c1-487f-9608-84423b120777")
+		(property "Reference" "C21"
+			(at 255.7272 36.957 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "100uF"
+			(at 255.7272 39.243 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Capacitor_SMD:CP_Elec_6.3x5.9"
+			(at 253.6952 41.91 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 252.73 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 252.73 38.1 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Field4" "16SVPC100M"
+			(at 252.73 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Field5" ""
+			(at 252.73 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Part Description" "  CAP ALUM POLY 100UF 20% 16V SMD"
+			(at 252.73 38.1 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "5cfb851d-1c86-44ef-89f5-23c7382d4bbe")
+		)
+		(pin "2"
+			(uuid "e6ea0191-bd76-4612-89e3-a73f0dc64067")
+		)
+		(instances
+			(project "cmb-cat"
+				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/00000000-0000-0000-0000-00005d31f999"
+					(reference "C21")
 					(unit 1)
 				)
 			)
