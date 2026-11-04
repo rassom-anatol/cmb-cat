@@ -22283,4 +22283,70 @@
 			)
 		)
 	)
+	(hierarchical_label "SPI0_CE0_N"
+		(shape output)
+		(at 120.65 74.93 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "c5758323-0d7e-48cc-9ab4-80810ed6a3cc")
+	)
+	(hierarchical_label "SPI0_SCLK"
+		(shape output)
+		(at 31.75 72.39 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "5a89a7e3-e449-4e2f-929d-cff399571bbe")
+	)
+	(hierarchical_label "SPI0_MOSI"
+		(shape output)
+		(at 31.75 80.01 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "7e4f32ab-9c8c-4d35-9892-da3af8e456fb")
+	)
+	(hierarchical_label "SPI0_MISO"
+		(shape input)
+		(at 31.75 74.93 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "9d4f60d5-aafd-414a-a962-f515e23b9fca")
+	)
+	(hierarchical_label "GPIO16"
+		(shape input)
+		(at 120.65 62.23 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left)
+		)
+		(uuid "a03b4a68-6af6-4778-9054-90c0faeccfad")
+	)
+	(hierarchical_label "GPIO17"
+		(shape input)
+		(at 31.75 87.63 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right)
+		)
+		(uuid "4d17f7b4-84eb-4c93-9b53-43515099566c")
+	)
 )

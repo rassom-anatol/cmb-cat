@@ -1054,6 +1054,66 @@
 				(justify left)
 			)
 		)
+		(pin "SPI0_CE0_N" output
+			(at 111.76 104.14 180)
+			(uuid "fdf49f4d-5540-4282-ac92-e7794d06d4c9")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "SPI0_SCLK" output
+			(at 111.76 106.68 180)
+			(uuid "a28b5266-9f49-4d01-9651-de678e9fd6a0")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "SPI0_MOSI" output
+			(at 111.76 109.22 180)
+			(uuid "50f0053d-9706-4e92-810c-b0a21b03c121")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "SPI0_MISO" input
+			(at 111.76 118.11 180)
+			(uuid "19ea28f3-2849-4201-be00-85df4bd8c693")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "GPIO16" input
+			(at 111.76 124.46 180)
+			(uuid "d9de227e-d76e-47eb-95d1-8cb112b5278b")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "GPIO17" input
+			(at 111.76 130.81 180)
+			(uuid "08e04ff1-ecad-47a0-b7fe-43191aca0f12")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
 	)
 	(sheet
 		(at 111.76 24.13)
@@ -1614,5 +1674,125 @@
 			(justify right bottom)
 		)
 		(uuid "5c48b8c4-0c61-4935-9ad6-6d6d4257e119")
+	)
+	(wire
+		(pts
+			(xy 111.76 104.14) (xy 102.87 104.14)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "88977c9e-68de-4fde-b869-d66e3ca8aaa6")
+	)
+	(label "SPI0_CE0_N"
+		(at 102.87 104.14 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "dc271a39-2d0a-4c8b-9d18-4c2702f7601e")
+	)
+	(wire
+		(pts
+			(xy 111.76 106.68) (xy 102.87 106.68)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "dc723b01-8357-406a-9355-10c3b942cb4d")
+	)
+	(label "SPI0_SCLK"
+		(at 102.87 106.68 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "d4a2fd6a-50e9-4706-9efc-a0e108f28120")
+	)
+	(wire
+		(pts
+			(xy 111.76 109.22) (xy 102.87 109.22)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "a51cebb0-d36f-42d3-8cb1-dcc2e802d35a")
+	)
+	(label "SPI0_MOSI"
+		(at 102.87 109.22 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "9f431130-dbf2-450d-837f-fa51820d9118")
+	)
+	(wire
+		(pts
+			(xy 111.76 118.11) (xy 102.87 118.11)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "0e43469c-fd55-4d65-9827-26df28034b73")
+	)
+	(label "SPI0_MISO"
+		(at 102.87 118.11 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "2409196a-0a81-43dc-abf7-d12750d3f754")
+	)
+	(wire
+		(pts
+			(xy 111.76 124.46) (xy 102.87 124.46)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "cd50c5e1-3e3b-4684-b68e-8b81407512f5")
+	)
+	(label "LAN9252_IRQ"
+		(at 102.87 124.46 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "b2a7ae27-8653-4da1-aa2b-482d8d8cf855")
+	)
+	(wire
+		(pts
+			(xy 111.76 130.81) (xy 102.87 130.81)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "e31652c5-b355-4c94-bfc5-f63365fdddea")
+	)
+	(label "LAN9252_SYNC0"
+		(at 102.87 130.81 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "247ccc57-cea6-454e-99e4-d1fc72c75c93")
 	)
 )

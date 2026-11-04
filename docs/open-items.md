@@ -98,26 +98,28 @@ KiCad symbol and footprint. Cable side goes through a 1 nF / 2 kV cap to chassis
 out to a JST GH `SM05B-GHS-TB` 5-pin right-angle connector per port, pinned
 **TX+, TX-, shield, RX+, RX-** so the shield sits between the pairs as a guard.
 
-**Remaining: promote the SPI0 bus and the two interrupt/sync lines on CM4_GPIO.**
-The EtherCAT sheet exposes these as hierarchical labels and the root sheet has matching sheet
-pins, but `CM4_GPIO.kicad_sch` still carries them as *local* labels, so the nets do not join
-yet. **Do this in the GUI.** For each signal, add a hierarchical label on the existing net in
-CM4_GPIO; the root sheet pin already exists.
+**The CM4 to LAN9252 interface is complete and verified.** All six signals join
+end-to-end, confirmed against the exported netlist:
 
-| EtherCAT sheet exposes | CM4_GPIO net today | A local label sits at |
-|---|---|---|
-| `SPI0_CE0_N` (input) | `SPI0_CE0_N` | (119.634, 74.93) |
-| `SPI0_SCLK` (input) | `SPI0_SCLK` | (155.194, 59.69) |
-| `SPI0_MOSI` (input) | `SPI0_MOSI` | (155.194, 54.61) |
-| `SPI0_MISO` (output) | `SPI0_MISO` | (153.924, 57.15) |
-| `LAN9252_IRQ` (output) | **`GPIO16`** | J8.36 / Module1.29 |
-| `LAN9252_SYNC0` (output) | **`GPIO17`** | J8.11 / Module1.50 |
+| Net | Members |
+|---|---|
+| `SPI0_CE0_N` | `J8.24` `Module1.39` `U16.50` |
+| `SPI0_SCLK` | `J8.23` `Module1.38` `U16.19` |
+| `SPI0_MOSI` | `J8.19` `Module1.44` `U16.17` |
+| `SPI0_MISO` | `J8.21` `Module1.40` `U16.13` |
+| `LAN9252_IRQ` | `J8.36` `Module1.29` `U16.44` |
+| `LAN9252_SYNC0` | `J8.11` `Module1.50` `U16.34` |
 
-The last two need a naming decision: `cm4-pin-plan.xlsx` allocates GPIO16 to `LAN9252-IRQ`
-and GPIO17 to `LAN9252-SYNC0`, but the schematic still calls those nets `GPIO16` and `GPIO17`
-— the earlier rename pass left them alone because the spreadsheet's "RPi Function" column just
-says `GPIO16`/`GPIO17` for plain GPIO. Either rename them on CM4_GPIO or rename the two
-hierarchical labels on the EtherCAT sheet and the matching root sheet pins. Do not do both.
+`CM4_GPIO.kicad_sch` already had stub wires drawn to its hierarchical-label columns
+(x=31.75 and x=120.65) with free dangling ends, clearly left for this purpose; six
+hierarchical labels were added there and six matching sheet pins on the root CM4_GPIO box.
+That also cleared six `unconnected_wire_endpoint` warnings.
+
+No net was renamed. CM4_GPIO still calls the two interrupt lines `GPIO16` and `GPIO17`;
+the join happens through root local labels named `LAN9252_IRQ` and `LAN9252_SYNC0` on those
+sheet pins' wires, which is legal and avoids touching 132 labels on that sheet. If you would
+rather the CM4_GPIO nets carry the descriptive names, rename them in the GUI and rename the
+root local labels to match — but it changes nothing electrically.
 
 **Done and verified end-to-end:** `nEXTRST` now drives the LAN9252 reset (the net carries
 `Module1.100`, `U15.2`, `U16.11`, `R35.2`, `C83.1`), and SYNC1 reaches the CM4 through `R55`
