@@ -7,22 +7,20 @@ items already done are listed at the bottom so they aren't re-raised.
 
 ## Footprints and libraries
 
-**LAN9252 TQFP-64 — remove solder paste from the four thermal vias.**
-`cmb-cat.pretty/TQFP-64_L10.0-W10.0-P0.50-LS12.0-BL-EP.kicad_mod` has four 0.30 mm
-through-holes at (±0.5, ±0.5) inside the exposed pad, and they carry `*.Paste`. Paste over
-an open via wicks solder down the barrel during reflow and starves the joint. Either strip
-the paste layer from those pads or specify plugged vias.
+**LAN9252 QFN-64 — check the exposed-pad paste subdivision.**
+`cmb-cat.pretty/QFN64_ML_MCH.kicad_mod` came from the Microchip download, not from KiCad's
+generator. A single large paste aperture over a 4+ mm exposed pad floats the part on molten
+solder and tilts it. The usual fix is to subdivide the paste into a 3x3 array of smaller
+apertures covering roughly 50-70% of the pad area. Verify what the file actually has.
 
-**LAN9252 TQFP-64 — add more thermal vias.**
-Four vias under a 4.04 mm exposed pad is thin. The datasheet states twice that the
-*"exposed pad (VSS) on bottom of package must be connected to ground with a via field."*
-The part dissipates around 640 mW with 29 °C/W junction-to-ambient. A 3×3 array or denser
-is the usual reading of "via field".
+**LAN9252 QFN-64 — no thermal vias in the footprint.**
+The exposed pad is ground and the part dissipates around 640 mW. The datasheet twice calls
+for the pad to be *"connected to ground with a via field."* The downloaded footprint contains
+no vias at all, so they must be added either in the footprint or as a via array in the layout.
 
-**LAN9252 TQFP-64 — land pattern not verified.**
-Section 19.2 of `00001909A.pdf` is a drawing with no extractable text, so pad geometry has
-not been checked against Microchip's recommendation. Measure it from the drawing before
-committing to fabrication.
+**LAN9252 QFN-64 — land pattern not verified against the datasheet.**
+Section 19 of `00001909A.pdf` is an image with no extractable text, so pad geometry has not
+been checked. Measure it from the drawing before fabrication.
 
 **Move `cmb-cat.pretty` from the global footprint table to the project table.**
 It is currently registered globally with a `${KIPRJMOD}` path, which resolves to whatever
@@ -86,6 +84,70 @@ the board must have **no charging path** — D3's BAT54C arrangement already blo
 
 ---
 
+## EtherCAT (LAN9252)
+
+Passives and the oscillator are placed and wired on `ethercat.kicad_sch` (2026-11-03).
+39 functional pins remain unconnected on purpose — each needs a decision:
+
+**Strap `CHIP_MODE0` / `CHIP_MODE1` (pins 48 / 46) before anything else works.**
+These are latched at the rising edge of reset and select the host interface: SPI/SQI,
+parallel, or MII. They are shared with `LINKACTLED0` / `LINKACTLED1` and with the JTAG
+`TDO` / `TDI`, so the strap resistors and the LED circuit have to coexist. The SPI setting
+is what the rest of the pin plan assumes. Get this wrong and the device never responds.
+
+**Wire the SPI bus to the CM4.** `cm4-pin-plan.xlsx` allocates GPIO8-11 as SPI0 to the
+LAN9252, GPIO16 as `LAN9252-IRQ`, GPIO17 as `LAN9252-SYNC0`. On the LAN9252 side the signals
+sit on multiplexed pins: `SCS#` (50), `SCK` (19), `SI/SIO0` (17), `SO/SIO1` (13),
+`IRQ` (44), `SYNC0/LATCH0` (34). Confirm the exact mapping against the SPI-mode table
+rather than the pin names, since single-SPI and dual/quad-SPI use different pins.
+
+**Add the EtherCAT configuration EEPROM.** `EESDA` (42) and `EESCL` (43) need their own
+I2C EEPROM — this is a separate bus from the CM4's I2C0, so it does not appear in
+`docs/i2c-address-map.md`. `E2PSIZE` (45, shared with `RUNLED`) selects the address width.
+Size it for the ESI/SII content, not arbitrarily.
+
+**Add the Ethernet magnetics and connectors.** Port A is `TXPA/TXNA` (53/52) and
+`RXPA/RXNA` (55/54); port B is `TXPB/TXNB` (62/63) and `RXPB/RXNB` (60/61). Two ports means
+two sets of magnetics — the integrated PHYs do not replace transformers. A mid-mount
+dual RJ45 with integrated magnetics is the compact option.
+
+**Confirm the crystal load capacitors.** `C81` / `C82` are 18 pF placeholders copied from
+the EVB. The correct value is `2 x (CL - Cstray)`, so it depends on the crystal actually
+chosen. `Y3` is specified only as 25 MHz; EtherCAT distributed clocks want +/-25 ppm or
+better, and the LAN9252 datasheet states its own frequency tolerance requirement. Pick a
+real part, then recompute.
+
+**`OSCVDD12` (pin 3) is left open** per decision on 2026-11-03, recorded with a no-connect
+flag so ERC stays quiet about it.
+
+**Pin types in the LAN9252 symbol were wrong as downloaded** and have been corrected:
+`OSCVSS` (4) and `VSS` (65) were `power_output` — a ground pin does not source power;
+`REG_EN` (7) and `FXLOSEN` (8) were `unspecified`, now `input`; `RBIAS` (57) was
+`unspecified`, now `passive`. This removed 15 `power_pin_not_driven` and 4 `pin_not_driven`
+ERC errors. Both `cmb-cat.kicad_sym` and the copy embedded in `ethercat.kicad_sch` were
+updated and now agree on all 65 pins.
+
+**VDDIO decoupling deviates from the EVB on purpose.** The EVB fits six 0.1 uF caps; this
+board fits five 0.1 uF (one per VDDIO pin) plus `C76`, a 10 uF bulk. Revert if you would
+rather match the reference exactly.
+
+---
+
+## Schematic hygiene
+
+**Stray local label `GND` on `CM4_GPIO.kicad_sch`.**
+At (85.344, 165.1) there is a local label named `GND` sitting on no wire — it connects
+nothing. Because `GND` is also a global power symbol name, it raises a
+`same_local_global_label` warning that now surfaces on the EtherCAT sheet. Safe to delete.
+
+**Local labels named `+3.3V` are used in several places** alongside the global `+3.3V`
+power symbol (root sheet, `CM4_GPIO`, `CM4_HighSpeed`). Where such a net also carries a
+`+3.3V` power symbol the two merge and all is well; where it does not, the local label
+creates a sheet-scoped net that only looks like the 3.3 V rail. Worth a pass to confirm
+each one touches a power symbol.
+
+---
+
 ## Power
 
 **Pick the footprint for the OS-CON bulk capacitor.**
@@ -124,3 +186,8 @@ fallback if that part becomes hard to source.
 - GPIO label rename from `cm4-pin-plan.xlsx` — 42 labels across 21 nets, ERC unchanged
 - `SPI0_CE0` → `SPI0_CE0_N` suffix — fixed in schematic and spreadsheet
 - GPIO44/45 naming — spreadsheet now matches the schematic's `SDA0` / `SCL0`
+- LAN9252 passives and oscillator placed and wired on `ethercat.kicad_sch` — FB1-FB4, C66-C83,
+  R34-R36, Y3, 5 PWR_FLAGs; 25 U16 pins wired, 1 no-connect; all 10 new nets verified against
+  the exported netlist
+- LAN9252 symbol swapped from TQFP-EP64 to QFN-64 (`LAN9252I/ML`), TQFP symbol and footprint removed
+- Sheet paper sizes set: EtherCAT / CM4_GPIO / CM4_HighSpeed / PSUs on US Ledger, RTC and root on US Letter

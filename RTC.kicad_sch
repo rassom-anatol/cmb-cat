@@ -3,7 +3,7 @@
 	(generator "eeschema")
 	(generator_version "10.0")
 	(uuid "92d938cc-f8b1-437d-8914-3d97a0938f67")
-	(paper "A4")
+	(paper "USLetter")
 	(title_block
 		(title "Compute Module 4 IO Board - RTC - FAN")
 		(rev "1")

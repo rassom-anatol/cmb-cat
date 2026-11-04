@@ -3,7 +3,7 @@
 	(generator "eeschema")
 	(generator_version "10.0")
 	(uuid "b1074f14-d9b1-488c-9ce1-52a2bed8b998")
-	(paper "A4")
+	(paper "USLedger")
 	(title_block
 		(title "Compute Module 4 IO Board - PSUs")
 		(company "© 2018-2026 Cortexware")

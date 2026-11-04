@@ -3,7 +3,7 @@
 	(generator "eeschema")
 	(generator_version "10.0")
 	(uuid "e63e39d7-6ac0-4ffd-8aa3-1841a4541b55")
-	(paper "A4")
+	(paper "USLetter")
 	(title_block
 		(title "Compute Module 4 IO Board - Top Level")
 		(rev "1")
@@ -110,7 +110,7 @@
 	)
 	(text "Connectors\n-------\nFAN\nBattery"
 		(exclude_from_sim no)
-		(at 88.9 113.03 0)
+		(at 68.58 97.79 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -121,7 +121,7 @@
 	)
 	(text "Connectors\n-------\nDC Barrel Jack\n4 pin power"
 		(exclude_from_sim no)
-		(at 193.04 114.3 0)
+		(at 172.72 99.06 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -132,7 +132,7 @@
 	)
 	(text "Connectors\n-------\nEthernet\n40way RPI\nJumpers"
 		(exclude_from_sim no)
-		(at 146.05 142.24 0)
+		(at 125.73 127 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -142,20 +142,20 @@
 		(uuid "a501555e-bbc7-4b58-ad89-28a0cd3dd6d0")
 	)
 	(junction
-		(at 140.97 110.49)
+		(at 120.65 95.25)
 		(diameter 1.016)
 		(color 0 0 0 0)
 		(uuid "87c78429-be2b-40ed-8d3b-56cb9666a56f")
 	)
 	(junction
-		(at 137.16 106.68)
+		(at 116.84 91.44)
 		(diameter 1.016)
 		(color 0 0 0 0)
 		(uuid "99030c03-63b4-49ba-b5ab-4d56974f7963")
 	)
 	(wire
 		(pts
-			(xy 137.16 101.6) (xy 137.16 106.68)
+			(xy 116.84 86.36) (xy 116.84 91.44)
 		)
 		(stroke
 			(width 0)
@@ -165,7 +165,7 @@
 	)
 	(wire
 		(pts
-			(xy 168.91 135.89) (xy 179.07 135.89)
+			(xy 148.59 120.65) (xy 158.75 120.65)
 		)
 		(stroke
 			(width 0)
@@ -175,7 +175,7 @@
 	)
 	(wire
 		(pts
-			(xy 140.97 110.49) (xy 140.97 101.6)
+			(xy 120.65 95.25) (xy 120.65 86.36)
 		)
 		(stroke
 			(width 0)
@@ -185,7 +185,7 @@
 	)
 	(wire
 		(pts
-			(xy 105.41 110.49) (xy 140.97 110.49)
+			(xy 85.09 95.25) (xy 120.65 95.25)
 		)
 		(stroke
 			(width 0)
@@ -195,7 +195,7 @@
 	)
 	(wire
 		(pts
-			(xy 137.16 106.68) (xy 137.16 116.84)
+			(xy 116.84 91.44) (xy 116.84 101.6)
 		)
 		(stroke
 			(width 0)
@@ -205,7 +205,7 @@
 	)
 	(wire
 		(pts
-			(xy 119.38 77.47) (xy 132.08 77.47)
+			(xy 99.06 62.23) (xy 111.76 62.23)
 		)
 		(stroke
 			(width 0)
@@ -215,7 +215,7 @@
 	)
 	(wire
 		(pts
-			(xy 218.44 111.76) (xy 226.06 111.76)
+			(xy 198.12 96.52) (xy 205.74 96.52)
 		)
 		(stroke
 			(width 0)
@@ -225,7 +225,7 @@
 	)
 	(wire
 		(pts
-			(xy 105.41 106.68) (xy 137.16 106.68)
+			(xy 85.09 91.44) (xy 116.84 91.44)
 		)
 		(stroke
 			(width 0)
@@ -235,7 +235,7 @@
 	)
 	(wire
 		(pts
-			(xy 68.58 113.03) (xy 81.28 113.03)
+			(xy 48.26 97.79) (xy 60.96 97.79)
 		)
 		(stroke
 			(width 0)
@@ -245,7 +245,7 @@
 	)
 	(wire
 		(pts
-			(xy 105.41 116.84) (xy 121.92 116.84)
+			(xy 85.09 101.6) (xy 101.6 101.6)
 		)
 		(stroke
 			(width 0)
@@ -255,7 +255,7 @@
 	)
 	(wire
 		(pts
-			(xy 81.28 115.57) (xy 68.58 115.57)
+			(xy 60.96 100.33) (xy 48.26 100.33)
 		)
 		(stroke
 			(width 0)
@@ -265,7 +265,7 @@
 	)
 	(wire
 		(pts
-			(xy 132.08 81.28) (xy 119.38 81.28)
+			(xy 111.76 66.04) (xy 99.06 66.04)
 		)
 		(stroke
 			(width 0)
@@ -275,7 +275,7 @@
 	)
 	(wire
 		(pts
-			(xy 179.07 130.81) (xy 168.91 130.81)
+			(xy 158.75 115.57) (xy 148.59 115.57)
 		)
 		(stroke
 			(width 0)
@@ -285,7 +285,7 @@
 	)
 	(wire
 		(pts
-			(xy 218.44 115.57) (xy 226.06 115.57)
+			(xy 198.12 100.33) (xy 205.74 100.33)
 		)
 		(stroke
 			(width 0)
@@ -295,7 +295,7 @@
 	)
 	(wire
 		(pts
-			(xy 121.92 137.16) (xy 132.08 137.16)
+			(xy 101.6 121.92) (xy 111.76 121.92)
 		)
 		(stroke
 			(width 0)
@@ -305,7 +305,7 @@
 	)
 	(wire
 		(pts
-			(xy 121.92 130.81) (xy 121.92 116.84)
+			(xy 101.6 115.57) (xy 101.6 101.6)
 		)
 		(stroke
 			(width 0)
@@ -315,7 +315,7 @@
 	)
 	(wire
 		(pts
-			(xy 140.97 116.84) (xy 140.97 110.49)
+			(xy 120.65 101.6) (xy 120.65 95.25)
 		)
 		(stroke
 			(width 0)
@@ -325,7 +325,7 @@
 	)
 	(wire
 		(pts
-			(xy 132.08 130.81) (xy 121.92 130.81)
+			(xy 111.76 115.57) (xy 101.6 115.57)
 		)
 		(stroke
 			(width 0)
@@ -334,7 +334,7 @@
 		(uuid "fc0a4225-db46-4d48-8163-d522602d57cd")
 	)
 	(label "+5V"
-		(at 220.98 115.57 0)
+		(at 200.66 100.33 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -344,7 +344,7 @@
 		(uuid "0d35483a-0b12-46cc-b9f2-896fd6831779")
 	)
 	(label "+5V"
-		(at 170.18 130.81 0)
+		(at 149.86 115.57 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -354,7 +354,7 @@
 		(uuid "55992e35-fe7b-468a-9b7a-1e4dc931b904")
 	)
 	(label "+5V"
-		(at 123.19 77.47 0)
+		(at 102.87 62.23 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -364,7 +364,7 @@
 		(uuid "5740c959-93d8-47fd-8f68-62f0109e753d")
 	)
 	(label "+5V"
-		(at 72.39 113.03 0)
+		(at 52.07 97.79 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -374,7 +374,7 @@
 		(uuid "786b6072-5772-4bc1-8eeb-6c4e19f2a91b")
 	)
 	(label "+3.3V"
-		(at 220.98 111.76 0)
+		(at 200.66 96.52 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -384,7 +384,7 @@
 		(uuid "877b0545-b0a1-4f78-9400-7a12101da95e")
 	)
 	(label "+3.3V"
-		(at 72.39 115.57 0)
+		(at 52.07 100.33 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -394,7 +394,7 @@
 		(uuid "9a9f2d82-f64d-4264-8bec-c182528fc4de")
 	)
 	(label "+3.3V"
-		(at 170.18 135.89 0)
+		(at 149.86 120.65 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -404,7 +404,7 @@
 		(uuid "a06e8e78-f567-42e6-b645-013b1073ca31")
 	)
 	(label "+3.3V"
-		(at 123.19 81.28 0)
+		(at 102.87 66.04 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -414,7 +414,7 @@
 		(uuid "c3c93de0-69b1-4a04-8e0b-d78caf487c63")
 	)
 	(label "nEXTRST"
-		(at 123.19 137.16 0)
+		(at 102.87 121.92 0)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -425,7 +425,7 @@
 	)
 	(symbol
 		(lib_id "Mechanical:MountingHole")
-		(at 43.815 165.735 0)
+		(at 23.495 150.495 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -435,7 +435,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005e3b32fa")
 		(property "Reference" "H5"
-			(at 46.355 164.592 0)
+			(at 26.035 149.352 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -446,7 +446,7 @@
 			)
 		)
 		(property "Value" "MountingHole"
-			(at 46.355 166.878 0)
+			(at 26.035 151.638 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -457,7 +457,7 @@
 			)
 		)
 		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5"
-			(at 43.815 165.735 0)
+			(at 23.495 150.495 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -468,7 +468,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 43.815 165.735 0)
+			(at 23.495 150.495 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -479,7 +479,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 43.815 165.735 0)
+			(at 23.495 150.495 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -489,7 +489,7 @@
 			)
 		)
 		(property "Field4" "nf"
-			(at 43.815 165.735 0)
+			(at 23.495 150.495 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -500,7 +500,7 @@
 			)
 		)
 		(property "Field5" "nf"
-			(at 43.815 165.735 0)
+			(at 23.495 150.495 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -511,7 +511,7 @@
 			)
 		)
 		(property "Field6" "nf"
-			(at 43.815 165.735 0)
+			(at 23.495 150.495 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -522,7 +522,7 @@
 			)
 		)
 		(property "Field7" "nf"
-			(at 43.815 165.735 0)
+			(at 23.495 150.495 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -533,7 +533,7 @@
 			)
 		)
 		(property "Part Description" "M2.5 mounting hole"
-			(at 43.815 165.735 0)
+			(at 23.495 150.495 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -554,7 +554,7 @@
 	)
 	(symbol
 		(lib_id "Mechanical:MountingHole")
-		(at 43.815 180.975 0)
+		(at 23.495 165.735 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -564,7 +564,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005e3b330c")
 		(property "Reference" "H8"
-			(at 46.355 179.832 0)
+			(at 26.035 164.592 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -575,7 +575,7 @@
 			)
 		)
 		(property "Value" "MountingHole"
-			(at 46.355 182.118 0)
+			(at 26.035 166.878 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -586,7 +586,7 @@
 			)
 		)
 		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5"
-			(at 43.815 180.975 0)
+			(at 23.495 165.735 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -597,7 +597,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 43.815 180.975 0)
+			(at 23.495 165.735 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -608,7 +608,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 43.815 180.975 0)
+			(at 23.495 165.735 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -618,7 +618,7 @@
 			)
 		)
 		(property "Field4" "nf"
-			(at 43.815 180.975 0)
+			(at 23.495 165.735 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -629,7 +629,7 @@
 			)
 		)
 		(property "Field5" "nf"
-			(at 43.815 180.975 0)
+			(at 23.495 165.735 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -640,7 +640,7 @@
 			)
 		)
 		(property "Field6" "nf"
-			(at 43.815 180.975 0)
+			(at 23.495 165.735 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -651,7 +651,7 @@
 			)
 		)
 		(property "Field7" "nf"
-			(at 43.815 180.975 0)
+			(at 23.495 165.735 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -662,7 +662,7 @@
 			)
 		)
 		(property "Part Description" "M2.5 mounting hole"
-			(at 43.815 180.975 0)
+			(at 23.495 165.735 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -683,7 +683,7 @@
 	)
 	(symbol
 		(lib_id "Mechanical:MountingHole")
-		(at 43.815 175.895 0)
+		(at 23.495 160.655 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -693,7 +693,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005e3b331e")
 		(property "Reference" "H7"
-			(at 46.355 174.752 0)
+			(at 26.035 159.512 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -704,7 +704,7 @@
 			)
 		)
 		(property "Value" "MountingHole"
-			(at 46.355 177.038 0)
+			(at 26.035 161.798 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -715,7 +715,7 @@
 			)
 		)
 		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5"
-			(at 43.815 175.895 0)
+			(at 23.495 160.655 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -726,7 +726,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 43.815 175.895 0)
+			(at 23.495 160.655 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -737,7 +737,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 43.815 175.895 0)
+			(at 23.495 160.655 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -747,7 +747,7 @@
 			)
 		)
 		(property "Field4" "nf"
-			(at 43.815 175.895 0)
+			(at 23.495 160.655 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -758,7 +758,7 @@
 			)
 		)
 		(property "Field5" "nf"
-			(at 43.815 175.895 0)
+			(at 23.495 160.655 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -769,7 +769,7 @@
 			)
 		)
 		(property "Field6" "nf"
-			(at 43.815 175.895 0)
+			(at 23.495 160.655 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -780,7 +780,7 @@
 			)
 		)
 		(property "Field7" "nf"
-			(at 43.815 175.895 0)
+			(at 23.495 160.655 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -791,7 +791,7 @@
 			)
 		)
 		(property "Part Description" "M2.5 mounting hole"
-			(at 43.815 175.895 0)
+			(at 23.495 160.655 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -812,7 +812,7 @@
 	)
 	(symbol
 		(lib_id "Mechanical:MountingHole")
-		(at 43.815 170.815 0)
+		(at 23.495 155.575 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -822,7 +822,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005e3b3330")
 		(property "Reference" "H6"
-			(at 46.355 169.672 0)
+			(at 26.035 154.432 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -833,7 +833,7 @@
 			)
 		)
 		(property "Value" "MountingHole"
-			(at 46.355 171.958 0)
+			(at 26.035 156.718 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -844,7 +844,7 @@
 			)
 		)
 		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5"
-			(at 43.815 170.815 0)
+			(at 23.495 155.575 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -855,7 +855,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 43.815 170.815 0)
+			(at 23.495 155.575 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -866,7 +866,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 43.815 170.815 0)
+			(at 23.495 155.575 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -876,7 +876,7 @@
 			)
 		)
 		(property "Field4" "nf"
-			(at 43.815 170.815 0)
+			(at 23.495 155.575 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -887,7 +887,7 @@
 			)
 		)
 		(property "Field5" "nf"
-			(at 43.815 170.815 0)
+			(at 23.495 155.575 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -898,7 +898,7 @@
 			)
 		)
 		(property "Field6" "nf"
-			(at 43.815 170.815 0)
+			(at 23.495 155.575 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -909,7 +909,7 @@
 			)
 		)
 		(property "Field7" "nf"
-			(at 43.815 170.815 0)
+			(at 23.495 155.575 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -920,7 +920,7 @@
 			)
 		)
 		(property "Part Description" "M2.5 mounting hole"
-			(at 43.815 170.815 0)
+			(at 23.495 155.575 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -940,7 +940,7 @@
 		)
 	)
 	(sheet
-		(at 132.08 116.84)
+		(at 111.76 101.6)
 		(size 36.83 31.75)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -956,7 +956,7 @@
 		)
 		(uuid "00000000-0000-0000-0000-00005cff706a")
 		(property "Sheetname" "CM4_GPIO ( Ethernet, GPIO)"
-			(at 132.08 151.13 0)
+			(at 111.76 135.89 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -967,7 +967,7 @@
 			)
 		)
 		(property "Sheetfile" "CM4_GPIO.kicad_sch"
-			(at 132.08 152.4 0)
+			(at 111.76 137.16 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -978,7 +978,7 @@
 			)
 		)
 		(pin "SCL0" output
-			(at 140.97 116.84 90)
+			(at 120.65 101.6 90)
 			(uuid "54365317-1355-4216-bb75-829375abc4ec")
 			(effects
 				(font
@@ -988,7 +988,7 @@
 			)
 		)
 		(pin "SDA0" output
-			(at 137.16 116.84 90)
+			(at 116.84 101.6 90)
 			(uuid "a3e4f0ae-9f86-49e9-b386-ed8b42e012fb")
 			(effects
 				(font
@@ -998,7 +998,7 @@
 			)
 		)
 		(pin "+5V" input
-			(at 168.91 130.81 0)
+			(at 148.59 115.57 0)
 			(uuid "a690fc6c-55d9-47e6-b533-faa4b67e20f3")
 			(effects
 				(font
@@ -1008,7 +1008,7 @@
 			)
 		)
 		(pin "+3.3V" output
-			(at 168.91 135.89 0)
+			(at 148.59 120.65 0)
 			(uuid "c144caa5-b0d4-4cef-840a-d4ad178a2102")
 			(effects
 				(font
@@ -1018,7 +1018,7 @@
 			)
 		)
 		(pin "nEXTRST" output
-			(at 132.08 137.16 180)
+			(at 111.76 121.92 180)
 			(uuid "efeac2a2-7682-4dc7-83ee-f6f1b23da506")
 			(effects
 				(font
@@ -1028,7 +1028,7 @@
 			)
 		)
 		(pin "GLOBAL_EN" input
-			(at 132.08 130.81 180)
+			(at 111.76 115.57 180)
 			(uuid "5fc27c35-3e1c-4f96-817c-93b5570858a6")
 			(effects
 				(font
@@ -1046,7 +1046,7 @@
 		)
 	)
 	(sheet
-		(at 132.08 39.37)
+		(at 111.76 24.13)
 		(size 36.83 62.23)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1062,7 +1062,7 @@
 		)
 		(uuid "00000000-0000-0000-0000-00005cff70b1")
 		(property "Sheetname" "CM4_HighSpeed"
-			(at 132.08 35.56 0)
+			(at 111.76 20.32 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1073,7 +1073,7 @@
 			)
 		)
 		(property "Sheetfile" "CM4_HighSpeed.kicad_sch"
-			(at 132.08 36.83 0)
+			(at 111.76 21.59 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1084,7 +1084,7 @@
 			)
 		)
 		(pin "SCL0" input
-			(at 140.97 101.6 270)
+			(at 120.65 86.36 270)
 			(uuid "ce83728b-bebd-48c2-8734-b6a50d837931")
 			(effects
 				(font
@@ -1094,7 +1094,7 @@
 			)
 		)
 		(pin "SDA0" input
-			(at 137.16 101.6 270)
+			(at 116.84 86.36 270)
 			(uuid "c41b3c8b-634e-435a-b582-96b83bbd4032")
 			(effects
 				(font
@@ -1104,7 +1104,7 @@
 			)
 		)
 		(pin "+5V" input
-			(at 132.08 77.47 180)
+			(at 111.76 62.23 180)
 			(uuid "9340c285-5767-42d5-8b6d-63fe2a40ddf3")
 			(effects
 				(font
@@ -1114,7 +1114,7 @@
 			)
 		)
 		(pin "+3.3V" input
-			(at 132.08 81.28 180)
+			(at 111.76 66.04 180)
 			(uuid "29e78086-2175-405e-9ba3-c48766d2f50c")
 			(effects
 				(font
@@ -1132,7 +1132,7 @@
 		)
 	)
 	(sheet
-		(at 190.5 104.14)
+		(at 170.18 88.9)
 		(size 27.94 20.32)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1148,7 +1148,7 @@
 		)
 		(uuid "00000000-0000-0000-0000-00005d31f999")
 		(property "Sheetname" "PSUs"
-			(at 190.5 103.5045 0)
+			(at 170.18 88.2645 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1159,7 +1159,7 @@
 			)
 		)
 		(property "Sheetfile" "PSUs.kicad_sch"
-			(at 190.5 125.73 0)
+			(at 170.18 110.49 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1170,7 +1170,7 @@
 			)
 		)
 		(pin "+5V" output
-			(at 218.44 115.57 0)
+			(at 198.12 100.33 0)
 			(uuid "bfc0aadc-38cf-466e-a642-68fdc3138c78")
 			(effects
 				(font
@@ -1180,7 +1180,7 @@
 			)
 		)
 		(pin "+3.3V" output
-			(at 218.44 111.76 0)
+			(at 198.12 96.52 0)
 			(uuid "6441b183-b8f2-458f-a23d-60e2b1f66dd6")
 			(effects
 				(font
@@ -1198,7 +1198,7 @@
 		)
 	)
 	(sheet
-		(at 81.28 104.14)
+		(at 60.96 88.9)
 		(size 24.13 20.32)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -1214,7 +1214,7 @@
 		)
 		(uuid "00000000-0000-0000-0000-00005e328d89")
 		(property "Sheetname" "RTC , Wakeup, FAN"
-			(at 81.28 103.5045 0)
+			(at 60.96 88.2645 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1225,7 +1225,7 @@
 			)
 		)
 		(property "Sheetfile" "RTC.kicad_sch"
-			(at 81.28 124.9685 0)
+			(at 60.96 109.7285 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1236,7 +1236,7 @@
 			)
 		)
 		(pin "SCL" input
-			(at 105.41 110.49 0)
+			(at 85.09 95.25 0)
 			(uuid "7bbf981c-a063-4e30-8911-e4228e1c0743")
 			(effects
 				(font
@@ -1246,7 +1246,7 @@
 			)
 		)
 		(pin "SDA" input
-			(at 105.41 106.68 0)
+			(at 85.09 91.44 0)
 			(uuid "5528bcad-2950-4673-90eb-c37e6952c475")
 			(effects
 				(font
@@ -1256,7 +1256,7 @@
 			)
 		)
 		(pin "+5V" input
-			(at 81.28 113.03 180)
+			(at 60.96 97.79 180)
 			(uuid "7edc9030-db7b-43ac-a1b3-b87eeacb4c2d")
 			(effects
 				(font
@@ -1266,7 +1266,7 @@
 			)
 		)
 		(pin "+3.3V" input
-			(at 81.28 115.57 180)
+			(at 60.96 100.33 180)
 			(uuid "08a7c925-7fae-4530-b0c9-120e185cb318")
 			(effects
 				(font
@@ -1276,7 +1276,7 @@
 			)
 		)
 		(pin "GLOBAL_EN" output
-			(at 105.41 116.84 0)
+			(at 85.09 101.6 0)
 			(uuid "4a4ec8d9-3d72-4952-83d4-808f65849a2b")
 			(effects
 				(font
@@ -1289,6 +1289,52 @@
 			(project "cmb-cat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
 					(page "3")
+				)
+			)
+		)
+	)
+	(sheet
+		(at 111.76 146.05)
+		(size 36.83 27.94)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(stroke
+			(width 0.1524)
+			(type solid)
+		)
+		(fill
+			(color 0 0 0 0)
+		)
+		(uuid "7677b130-9266-4081-810e-b27344814fef")
+		(property "Sheetname" "EtherCAT"
+			(at 111.76 145.3384 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left bottom)
+			)
+		)
+		(property "Sheetfile" "ethercat.kicad_sch"
+			(at 111.76 174.5746 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left top)
+			)
+		)
+		(instances
+			(project "cmb-cat"
+				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55"
+					(page "2")
 				)
 			)
 		)
