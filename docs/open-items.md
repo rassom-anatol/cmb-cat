@@ -167,6 +167,109 @@ on all 65 pins.
 
 ---
 
+## CMC301 FFC interface
+
+Placed on `CM4_GPIO.kicad_sch` in the clear area at x>290 (that sheet's content stops at
+x=282 on a 431.8 mm page). Putting it there means no cross-sheet plumbing at all — every
+signal is already a local label on that sheet. Move it to its own sheet later if you prefer;
+it is a drag in the GUI.
+
+**Connector: Hirose `FH12-30S-0.5SH(55)`,** 30-way, 0.5 mm, right-angle ZIF.
+KiCad footprint `Connector_FFC-FPC:Hirose_FH12-30S-0.5SH_1x30-1MP_P0.50mm_Horizontal`.
+
+> **The base part `FH12-30S-0.5SH` is obsolete.** The `(55)` suffix is the active
+> replacement and has the same land pattern. Do **not** substitute `FH12A-30S-0.5SH(55)`:
+> the "A" variant has contacts on the **top** and a body of 19.5 x 7 mm against the
+> FH12's 19.1 x 6.4 mm, so it is a different footprint. KiCad's footprint is the
+> bottom-contact FH12.
+
+Contact side also decides the cable: with bottom contacts at both ends, whether you need a
+same-side (Molex Premo-Flex Type A) or opposite-side (Type D) jumper depends on how the two
+boards face each other. Settle that against the mechanical layout before ordering.
+
+### Pinout, as wired
+
+| Pin | Net | Pin | Net | Pin | Net |
+|---|---|---|---|---|---|
+| 1 | GND | 11 | SPI6_MOSI | 21 | CTRL_ENABLE |
+| 2 | SPI4_SCLK | 12 | GND | 22 | CTRL_STATUS |
+| 3 | SPI4_MOSI | 13 | SPI6_MISO | 23 | GND |
+| 4 | GND | 14 | SPI6_CE0_N | 24 | CMC301_SLEEPN |
+| 5 | SPI4_MISO | 15 | GND | 25 | GND |
+| 6 | SPI4_CE0_N | 16 | SPI6_CE1_N | 26 | +3.3V |
+| 7 | GND | 17 | GND | 27 | +3.3V |
+| 8 | SPI4_CE1_N | 18 | SDA0 | 28 | GND |
+| 9 | GND | 19 | SCL0 | 29 | GND |
+| 10 | SPI6_SCLK | 20 | GND | 30 | GND |
+
+15 signals, 2 supply, 13 ground. Grounds are interleaved so no signal is more than one
+conductor from a return, and the two SPI buses are separated by one. All 30 pins were
+verified against the exported netlist; every signal reaches the CM4 module.
+
+### Why these signals, from the TMC6460 datasheet
+
+Each TMC6460's host-side pins are CSN (1), SLEEPN (2), DRV_EN (34), FAULTN (35), SCK (36),
+SDI (37), SDO (38). Two of those have **internal pull-downs** and so are fail-safe but must
+be actively driven to run:
+
+- **`DRV_EN` (34), active high, internal pull-down.** Driven from `CTRL_ENABLE` (GPIO22).
+  When the CM4 resets its GPIOs go high-Z and the pull-down disables the power stage, which
+  is the behaviour you want.
+- **`SLEEPN` (2), active low, internal pull-down.** Register contents are lost in sleep, so
+  this is also the reset. Driven from expander pin IO0 with `R57` (10k) pulling it up on
+  CMB-CAT, so the default is awake and software has to deliberately assert it. That avoids
+  driving it from `nEXTRST`, because the datasheet warns "do not assert this pin while the
+  motor is moving" and `nEXTRST` falls on any CPU reset.
+- **`FAULTN` (35)** is open-drain with an internal pull-up, so the three devices wire-OR onto
+  `CTRL_STATUS` (GPIO26); `R56` (10k) is the external pull-up on this side.
+- **`CLK` (7)** is left to CMC301. The internal oscillator is 15 MHz +/-5%, and per the errata
+  the 599 Hz electrical output-frequency limit is derived from it, so it can trip at roughly
+  542 to 570 Hz. Feed an external clock there if that matters.
+
+`CTRL_ENABLE` and `CTRL_STATUS` were added as labels on the existing `GPIO22` and `GPIO26`
+nets, applying the pin plan's naming without deleting anything. KiCad reports two
+`multiple_net_names` warnings saying the descriptive name wins — that is intended. Delete
+the old `GPIO22` / `GPIO26` labels in the GUI if you want the warnings gone.
+
+---
+
+## I2C GPIO expander (U11, PCA9538BS)
+
+Was placed with power and I2C only. Now also wired:
+
+- `A0` (15) and `A1` (16) to GND, giving **0x70** as `docs/i2c-address-map.md` specifies
+- `RESET` (1) from `nEXTRST`
+- `INT` (11) to `EXP_INT` with `R58` (10k) pull-up — open-drain, so the pull-up is required
+- `IO0` (2) drives `CMC301_SLEEPN`
+
+**IO1 to IO7 are unassigned** and need your intent. Candidates found while wiring:
+
+- **`USB_INT`** — the TUSB320 interrupt on `CM4_HighSpeed.kicad_sch` currently terminates at
+  its own 10k pull-up and goes nowhere. This is the signal you asked about when the expander
+  was chosen. Routing it here needs a hierarchical label on CM4_HighSpeed plus a root sheet
+  pin, the same pattern used for SPI0.
+- **`nRTC_INT`** — likewise dangling, but see the warning below before connecting it.
+- A fan enable, if the thermal measurement says you need one.
+
+The PCA9538 has no internal pull-downs on its I/Os. Configure the unused ones as outputs in
+firmware rather than leaving them floating as inputs.
+
+**`EXP_INT` has no destination.** Every CM4 GPIO is allocated, so the expander is polled over
+I2C by default. That is fine for housekeeping. If you want a real interrupt it has to share
+an existing line or displace something in `cm4-pin-plan.xlsx`.
+
+> **`nRTC_INT` is pulled up to +5 V, not 3.3 V.** `R19` (510k) on `RTC.kicad_sch` references
+> `+5V`, so that net idles at 5 V. Feeding it to any 3.3 V input — the expander included —
+> forward-biases the input protection diode. The current is only a few microamps through
+> 510k so nothing is damaged, but it is wrong. Re-reference `R19` to `+3.3V` before using
+> this signal.
+
+**U11 sits off the 1.27 mm grid** at (193.294, 133.35), so its pins and anything wired to
+them are off-grid too. That is part of the project's 239 `endpoint_off_grid` warnings and
+pre-dates this work; nudging the symbol onto the grid would need its wires redrawn.
+
+---
+
 ## Schematic hygiene
 
 **Stray local label `GND` on `CM4_GPIO.kicad_sch`.**
