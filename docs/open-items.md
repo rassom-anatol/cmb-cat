@@ -86,50 +86,82 @@ the board must have **no charging path** — D3's BAT54C arrangement already blo
 
 ## EtherCAT (LAN9252)
 
-Passives and the oscillator are placed and wired on `ethercat.kicad_sch` (2026-11-03).
-39 functional pins remain unconnected on purpose — each needs a decision:
+The sheet is complete and wired as of 2026-11-03: 57 parts, ERC down from 84 violations to 1
+(and that one is the stray `GND` label on CM4_GPIO, below). Every net was verified against the
+exported netlist.
 
-**Strap `CHIP_MODE0` / `CHIP_MODE1` (pins 48 / 46) before anything else works.**
-These are latched at the rising edge of reset and select the host interface: SPI/SQI,
-parallel, or MII. They are shared with `LINKACTLED0` / `LINKACTLED1` and with the JTAG
-`TDO` / `TDI`, so the strap resistors and the LED circuit have to coexist. The SPI setting
-is what the rest of the pin plan assumes. Get this wrong and the device never responds.
+Front end per port: 4x 49.9R 1% from TXP/TXN/RXP/RXN to `VDD33TXRX(n)`, plus a 0R from the
+commoned transformer centre taps to the same rail — this is the topology reconstructed from
+Microchip's own `EVB-LAN9252-SPI` Altium files, not a guess. Magnetics are Halo
+`TG110-E050N5RL` (one per port); `Wuerth 749013011A` is the second source and uses the same
+KiCad symbol and footprint. Cable side goes through a 1 nF / 2 kV cap to chassis (`Earth`) and
+out to a JST GH `SM05B-GHS-TB` 5-pin right-angle connector per port, pinned
+**TX+, TX-, shield, RX+, RX-** so the shield sits between the pairs as a guard.
 
-**Wire the SPI bus to the CM4.** `cm4-pin-plan.xlsx` allocates GPIO8-11 as SPI0 to the
-LAN9252, GPIO16 as `LAN9252-IRQ`, GPIO17 as `LAN9252-SYNC0`. On the LAN9252 side the signals
-sit on multiplexed pins: `SCS#` (50), `SCK` (19), `SI/SIO0` (17), `SO/SIO1` (13),
-`IRQ` (44), `SYNC0/LATCH0` (34). Confirm the exact mapping against the SPI-mode table
-rather than the pin names, since single-SPI and dual/quad-SPI use different pins.
+**Remaining: promote the SPI0 bus and the two interrupt/sync lines on CM4_GPIO.**
+The EtherCAT sheet exposes these as hierarchical labels and the root sheet has matching sheet
+pins, but `CM4_GPIO.kicad_sch` still carries them as *local* labels, so the nets do not join
+yet. **Do this in the GUI.** For each signal, add a hierarchical label on the existing net in
+CM4_GPIO; the root sheet pin already exists.
 
-**Add the EtherCAT configuration EEPROM.** `EESDA` (42) and `EESCL` (43) need their own
-I2C EEPROM — this is a separate bus from the CM4's I2C0, so it does not appear in
-`docs/i2c-address-map.md`. `E2PSIZE` (45, shared with `RUNLED`) selects the address width.
-Size it for the ESI/SII content, not arbitrarily.
+| EtherCAT sheet exposes | CM4_GPIO net today | A local label sits at |
+|---|---|---|
+| `SPI0_CE0_N` (input) | `SPI0_CE0_N` | (119.634, 74.93) |
+| `SPI0_SCLK` (input) | `SPI0_SCLK` | (155.194, 59.69) |
+| `SPI0_MOSI` (input) | `SPI0_MOSI` | (155.194, 54.61) |
+| `SPI0_MISO` (output) | `SPI0_MISO` | (153.924, 57.15) |
+| `LAN9252_IRQ` (output) | **`GPIO16`** | J8.36 / Module1.29 |
+| `LAN9252_SYNC0` (output) | **`GPIO17`** | J8.11 / Module1.50 |
 
-**Add the Ethernet magnetics and connectors.** Port A is `TXPA/TXNA` (53/52) and
-`RXPA/RXNA` (55/54); port B is `TXPB/TXNB` (62/63) and `RXPB/RXNB` (60/61). Two ports means
-two sets of magnetics — the integrated PHYs do not replace transformers. A mid-mount
-dual RJ45 with integrated magnetics is the compact option.
+The last two need a naming decision: `cm4-pin-plan.xlsx` allocates GPIO16 to `LAN9252-IRQ`
+and GPIO17 to `LAN9252-SYNC0`, but the schematic still calls those nets `GPIO16` and `GPIO17`
+— the earlier rename pass left them alone because the spreadsheet's "RPi Function" column just
+says `GPIO16`/`GPIO17` for plain GPIO. Either rename them on CM4_GPIO or rename the two
+hierarchical labels on the EtherCAT sheet and the matching root sheet pins. Do not do both.
 
-**Confirm the crystal load capacitors.** `C81` / `C82` are 18 pF placeholders copied from
-the EVB. The correct value is `2 x (CL - Cstray)`, so it depends on the crystal actually
-chosen. `Y3` is specified only as 25 MHz; EtherCAT distributed clocks want +/-25 ppm or
-better, and the LAN9252 datasheet states its own frequency tolerance requirement. Pick a
-real part, then recompute.
+**Done and verified end-to-end:** `nEXTRST` now drives the LAN9252 reset (the net carries
+`Module1.100`, `U15.2`, `U16.11`, `R35.2`, `C83.1`), and SYNC1 reaches the CM4 through `R55`
+(0R) — `/SYNC_IN` is `Module1.16` + `R55.2`. The `SYNC_IN` sheet pin was the only thing
+missing on the root CM4_GPIO box; its hierarchical label already existed inside the sheet.
 
-**`OSCVDD12` (pin 3) is left open** per decision on 2026-11-03, recorded with a no-connect
-flag so ERC stays quiet about it.
+**Strap values, from the EVB:** `CHIP_MODE0` (48) and `CHIP_MODE1` (46) each 10k to GND = 00,
+two-port mode. `E2PSIZE` (45) 10k to 3V3 = high, required for 32 Kbit and above. Note
+CHIP_MODE selects *port topology*, not the host interface — the PDI comes from register
+`0x0140`, loaded from the EEPROM, which is why the EEPROM is mandatory.
+
+**LEDs share the strap pins.** Anode to 3V3, cathode through a resistor to the pin, so they
+are active-low: `D8`/`R52` 1k on LINKACTLED0, `D9`/`R53` 1k on LINKACTLED1, `D10`/`R54` 270R
+on RUNLED. On the two link LEDs the 10k pull-down sits in series with the LED when the pin is
+high-Z, giving about 130 uA of leakage — a possible faint glow. The EVB accepts this; raise
+the pull-down or drop the LED if it is visible.
+
+**Confirm the crystal before fabrication.** `Y3` is specified only as 25 MHz with 18 pF load
+caps copied from the EVB. Table 18-12 requires, for EtherCAT, **+/-15 ppm at 25 C and +/-15 ppm
+over temperature** in a +/-25 ppm total budget — far tighter than the +/-40 ppm plain Ethernet
+allows, and tighter than most commodity 2520 parts. Load caps follow the chosen crystal's CL
+(the chip accepts CL up to 18 pF; its own OSCI/OSCO pin capacitance is 3 pF typ), so
+`C81`/`C82` must be recomputed once the part is picked.
+
+**Signal integrity of the 5-pin connector.** 100BASE-TX needs ~100 ohm differential. Discrete
+pre-crimped leads laid side by side are not a twisted pair. Specify twisted pair crimped into
+the GH housing and keep runs short; the shield pin between the pairs helps. Also keep the
+cable-side centre taps off board GND — they go to chassis through the 2 kV cap, because
+EtherCAT relies on transformer isolation between nodes.
+
+**`OSCVDD12` (pin 3) is left open** per decision on 2026-11-03, recorded with a no-connect flag.
 
 **Pin types in the LAN9252 symbol were wrong as downloaded** and have been corrected:
 `OSCVSS` (4) and `VSS` (65) were `power_output` — a ground pin does not source power;
-`REG_EN` (7) and `FXLOSEN` (8) were `unspecified`, now `input`; `RBIAS` (57) was
-`unspecified`, now `passive`. This removed 15 `power_pin_not_driven` and 4 `pin_not_driven`
-ERC errors. Both `cmb-cat.kicad_sym` and the copy embedded in `ethercat.kicad_sch` were
-updated and now agree on all 65 pins.
+`REG_EN` (7) and `FXLOSEN` (8) were `unspecified`, now `input`; `RBIAS` (57) `unspecified`,
+now `passive`; and the eight PHY pins (52-55, 60-63) were `unspecified`, now `passive`.
+Both `cmb-cat.kicad_sym` and the copy embedded in `ethercat.kicad_sch` were updated and agree
+on all 65 pins.
 
-**VDDIO decoupling deviates from the EVB on purpose.** The EVB fits six 0.1 uF caps; this
-board fits five 0.1 uF (one per VDDIO pin) plus `C76`, a 10 uF bulk. Revert if you would
-rather match the reference exactly.
+**19 parallel-bus pins carry no-connect flags** (12, 15, 16, 21-23, 25-31, 33, 35, 36, 39, 40,
+49). They are the parallel/DIGIO/MII alternatives, unused in SPI PDI mode.
+
+**VDDIO decoupling deviates from the EVB on purpose:** five 0.1 uF (one per VDDIO pin) plus
+`C76`, a 10 uF bulk, where the EVB fits six 0.1 uF.
 
 ---
 

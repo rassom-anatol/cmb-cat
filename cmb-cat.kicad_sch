@@ -1044,6 +1044,16 @@
 				)
 			)
 		)
+		(pin "SYNC_IN" input
+			(at 111.76 128.27 180)
+			(uuid "3c5339a5-3254-4789-bfbd-fc9187335661")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
 	)
 	(sheet
 		(at 111.76 24.13)
@@ -1338,6 +1348,86 @@
 				)
 			)
 		)
+		(pin "LAN9252_RST_N" input
+			(at 111.76 149.86 180)
+			(uuid "3267f726-98fc-44b9-8c7e-6601bb75c252")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "SPI0_CE0_N" input
+			(at 111.76 152.4 180)
+			(uuid "1a7fffb3-afde-406f-99f8-075072268bf2")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "SPI0_SCLK" input
+			(at 111.76 154.94 180)
+			(uuid "e5aa2a50-cab1-496e-b036-5ef5c5c59720")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "SPI0_MOSI" input
+			(at 111.76 157.48 180)
+			(uuid "bd8fc5de-b92f-4087-b802-c2e9fd27aa04")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "SPI0_MISO" output
+			(at 111.76 160.02 180)
+			(uuid "6e728a48-54c6-4c3b-82f7-7d611bfd4da3")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "LAN9252_IRQ" output
+			(at 111.76 162.56 180)
+			(uuid "501ec667-f9d7-456a-bf79-9e69c2b4a01e")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "LAN9252_SYNC0" output
+			(at 111.76 165.1 180)
+			(uuid "2f022423-facc-4510-a834-f5de2a33a1dd")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(pin "SYNC_IN" output
+			(at 111.76 167.64 180)
+			(uuid "60a7015f-6428-4ac7-94e3-8fbf56b7a2ba")
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
 	)
 	(sheet_instances
 		(path "/"
@@ -1345,4 +1435,184 @@
 		)
 	)
 	(embedded_fonts no)
+	(wire
+		(pts
+			(xy 111.76 149.86) (xy 102.87 149.86)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "79432d6b-1c62-43f5-b106-a9626cff17fe")
+	)
+	(label "nEXTRST"
+		(at 102.87 149.86 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "09cdf277-48e4-4b48-9ca6-18ff35cb2921")
+	)
+	(wire
+		(pts
+			(xy 111.76 152.4) (xy 102.87 152.4)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "c108d6fb-2bb8-47cf-965f-993af3893b78")
+	)
+	(label "SPI0_CE0_N"
+		(at 102.87 152.4 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "8082fcea-7808-4109-9e0f-3464e401b3ed")
+	)
+	(wire
+		(pts
+			(xy 111.76 154.94) (xy 102.87 154.94)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "aa9d13b6-6f28-4936-9183-0ccc71a09c60")
+	)
+	(label "SPI0_SCLK"
+		(at 102.87 154.94 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "d74d93b0-1e24-4731-8c04-6b70d94a2b6c")
+	)
+	(wire
+		(pts
+			(xy 111.76 157.48) (xy 102.87 157.48)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "86ca1a76-7479-47c2-b8e2-373e8751898c")
+	)
+	(label "SPI0_MOSI"
+		(at 102.87 157.48 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "333f530e-27c5-41a9-b4f1-435e1e7ed140")
+	)
+	(wire
+		(pts
+			(xy 111.76 160.02) (xy 102.87 160.02)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "2a66356e-926c-4c50-a589-cc81957ebf9c")
+	)
+	(label "SPI0_MISO"
+		(at 102.87 160.02 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "ae0b5831-820f-404d-88d5-0998cacd0e93")
+	)
+	(wire
+		(pts
+			(xy 111.76 162.56) (xy 102.87 162.56)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "0793fcfc-2192-432d-838b-f835f6ab25c8")
+	)
+	(label "LAN9252_IRQ"
+		(at 102.87 162.56 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "c4080b7c-99b1-448a-b0e3-6942df51b86e")
+	)
+	(wire
+		(pts
+			(xy 111.76 165.1) (xy 102.87 165.1)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "a50c8441-e344-4d75-a931-0fb2d2b2a6f0")
+	)
+	(label "LAN9252_SYNC0"
+		(at 102.87 165.1 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "d983bdb5-a6d2-4a50-9bc1-ef87a1567596")
+	)
+	(wire
+		(pts
+			(xy 111.76 167.64) (xy 102.87 167.64)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "32b6c30d-6350-460e-9f71-73b0774a3ad6")
+	)
+	(label "SYNC_IN"
+		(at 102.87 167.64 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "4433b406-8168-4dce-a828-48add32e4641")
+	)
+	(wire
+		(pts
+			(xy 111.76 128.27) (xy 102.87 128.27)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "3f8ac749-0b5d-41e7-ab39-b0ab14e05301")
+	)
+	(label "SYNC_IN"
+		(at 102.87 128.27 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "5c48b8c4-0c61-4935-9ad6-6d6d4257e119")
+	)
 )
