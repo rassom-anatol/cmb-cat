@@ -1369,6 +1369,129 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Mechanical:MountingHole_Pad"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 1.016)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom no)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "H"
+				(at 0 6.35 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "MountingHole_Pad"
+				(at 0 4.445 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Mounting Hole with connection"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "mounting hole"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "MountingHole*Pad*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "MountingHole_Pad_0_1"
+				(circle
+					(center 0 1.27)
+					(radius 1.27)
+					(stroke
+						(width 1.27)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "MountingHole_Pad_1_1"
+				(pin input line
+					(at 0 -2.54 90)
+					(length 2.54)
+					(name "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "cmb-cat:TPS2121RUXR"
 			(pin_names
 				(offset 0.254)
@@ -3998,7 +4121,7 @@
 	)
 	(symbol
 		(lib_id "Connector:TestPoint")
-		(at 34.29 64.77 0)
+		(at 49.53 63.5 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4008,7 +4131,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005e5a1c5d")
 		(property "Reference" "TP6"
-			(at 35.7632 61.7728 0)
+			(at 51.0032 60.5028 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4019,7 +4142,7 @@
 			)
 		)
 		(property "Value" "TestPoint"
-			(at 35.7632 64.0842 0)
+			(at 51.0032 62.8142 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4030,7 +4153,7 @@
 			)
 		)
 		(property "Footprint" "TestPoint:TestPoint_Pad_2.0x2.0mm"
-			(at 39.37 64.77 0)
+			(at 54.61 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4041,7 +4164,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 39.37 64.77 0)
+			(at 54.61 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4052,7 +4175,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 34.29 64.77 0)
+			(at 49.53 63.5 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4062,7 +4185,7 @@
 			)
 		)
 		(property "Field4" "nf"
-			(at 34.29 64.77 0)
+			(at 49.53 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4073,7 +4196,7 @@
 			)
 		)
 		(property "Field5" "nf"
-			(at 34.29 64.77 0)
+			(at 49.53 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4084,7 +4207,7 @@
 			)
 		)
 		(property "Field6" "nf"
-			(at 34.29 64.77 0)
+			(at 49.53 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4095,7 +4218,7 @@
 			)
 		)
 		(property "Field7" "nf"
-			(at 34.29 64.77 0)
+			(at 49.53 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4119,7 +4242,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 34.29 64.77 0)
+		(at 49.53 63.5 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -4129,7 +4252,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005e5b1f44")
 		(property "Reference" "#PWR0122"
-			(at 34.29 71.12 0)
+			(at 49.53 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4140,7 +4263,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 34.417 69.1642 0)
+			(at 49.657 67.8942 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -4150,7 +4273,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 34.29 64.77 0)
+			(at 49.53 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4161,7 +4284,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 34.29 64.77 0)
+			(at 49.53 63.5 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -4172,7 +4295,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 34.29 64.77 0)
+			(at 49.53 63.5 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -9990,6 +10113,84 @@
 			(project "cmb-cat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/00000000-0000-0000-0000-00005d31f999"
 					(reference "C58")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Mechanical:MountingHole_Pad")
+		(at 33.02 62.23 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom no)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "fdc776b9-7c9e-4eaf-9c59-e17a4e0b0d8a")
+		(property "Reference" "H1"
+			(at 27.94 63.754 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "MountingHole_Pad"
+			(at 17.272 66.548 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 33.02 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 33.02 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Mounting Hole with connection"
+			(at 33.02 62.23 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "7bf9a449-f84d-4695-b6b5-d12351a65d4d")
+		)
+		(instances
+			(project "cmb-cat"
+				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/00000000-0000-0000-0000-00005d31f999"
+					(reference "H1")
 					(unit 1)
 				)
 			)

@@ -9318,7 +9318,7 @@
 		(in_pos_files yes)
 		(dnp no)
 		(uuid "07ad1941-28f5-4a54-b084-95600d7ae7dd")
-		(property "Reference" "H1"
+		(property "Reference" "H2"
 			(at 265.43 117.094 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -9379,7 +9379,7 @@
 		(instances
 			(project "cmb-cat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/00000000-0000-0000-0000-00005cff70b1"
-					(reference "H1")
+					(reference "H2")
 					(unit 1)
 				)
 			)
