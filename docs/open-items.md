@@ -305,6 +305,31 @@ fallback if that part becomes hard to source.
 
 ---
 
+## Encoder feedback — see `docs/encoder-feedback.md`
+
+**Decide which encoder protocols CMB-CAT must support.** This gates whether the TMC8100 is
+needed at all. The symbol and footprint exist in the project library but the part is not
+placed on any sheet, so nothing is committed.
+
+- If **SSI only**: the CM4 can read it over SPI directly (clock-and-data, no chip select),
+  and the TMC6460 handles it natively on CMC301. The TMC8100 can be dropped.
+- If **BiSS-C**: confirm with ADI that a BiSS-C program exists for the TMC8100 and what it
+  costs. Its datasheet mentions BiSS exactly once, against 42 mentions of SSI. The same
+  single-sentence claim in the TMC6460 datasheet turned out to rest on an undocumented
+  I/O Controller instruction set.
+
+**Do not plan on host-supplied commutation angle.** The TMC4671 has no extrapolation, so
+`PHI_E_EXT` is a zero-order hold; at 1 kHz with 7 pole pairs the commutation error is 42
+degrees at 1000 rpm and torque reverses by 3000 rpm. The practical ceiling is ~240 rpm.
+Use ABN for commutation and the absolute encoder to re-reference at startup instead —
+`ABN_DECODER_PHI_E_PHI_M_OFFSET` and `PID_POSITION_ACTUAL` are both writable, which gives
+correct commutation from the first PWM cycle with no alignment move.
+
+**Confirm the encoders provide both absolute and incremental**, or budget for two sensors.
+Note the position loop then resolves to ABN counts, not encoder bits.
+
+---
+
 ## Verification before release
 
 - Scan the assembled stack with `i2cdetect -y 0` against `docs/i2c-address-map.md`

@@ -10866,6 +10866,172 @@
 			)
 			(embedded_fonts no)
 		)
+		(symbol "Jumper:Jumper_2_Small_Bridged"
+			(pin_numbers
+				(hide yes)
+			)
+			(pin_names
+				(offset 0)
+				(hide yes)
+			)
+			(exclude_from_sim no)
+			(in_bom yes)
+			(on_board yes)
+			(in_pos_files yes)
+			(duplicate_pin_numbers_are_jumpers no)
+			(property "Reference" "JP"
+				(at 0 2.032 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Value" "Jumper_2_Small_Bridged"
+				(at 0 -2.286 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Footprint" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Datasheet" ""
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Description" "Jumper, 2-pole, small symbol, bridged"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_keywords" "Jumper SPST"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "ki_fp_filters" "Jumper* TestPoint*2Pads* TestPoint*Bridge*"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(symbol "Jumper_2_Small_Bridged_0_0"
+				(circle
+					(center -1.016 0)
+					(radius 0.254)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+				(circle
+					(center 1.016 0)
+					(radius 0.254)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "Jumper_2_Small_Bridged_0_1"
+				(arc
+					(start -0.762 0.254)
+					(mid 0 0.5696)
+					(end 0.762 0.254)
+					(stroke
+						(width 0)
+						(type default)
+					)
+					(fill
+						(type none)
+					)
+				)
+			)
+			(symbol "Jumper_2_Small_Bridged_1_1"
+				(pin passive line
+					(at -2.54 0 0)
+					(length 1.27)
+					(name "A"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "1"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+				(pin passive line
+					(at 2.54 0 180)
+					(length 1.27)
+					(name "B"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+					(number "2"
+						(effects
+							(font
+								(size 1.27 1.27)
+							)
+						)
+					)
+				)
+			)
+			(embedded_fonts no)
+		)
 		(symbol "Memory_EEPROM:24LC32"
 			(exclude_from_sim no)
 			(in_bom yes)
@@ -12038,6 +12204,12 @@
 		(uuid "05691df1-e8ba-40fb-aaea-6d9585b31636")
 	)
 	(junction
+		(at 236.22 243.84)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "0676014f-7cfd-4fa6-bc98-77ce54c3dbe6")
+	)
+	(junction
 		(at 107.95 67.31)
 		(diameter 1.016)
 		(color 0 0 0 0)
@@ -12102,6 +12274,12 @@
 		(diameter 0)
 		(color 0 0 0 0)
 		(uuid "5c3ab9da-94c1-4610-885c-b1274a48964b")
+	)
+	(junction
+		(at 236.22 246.38)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "66d38523-a3c2-4e09-b0f7-167e14b67975")
 	)
 	(junction
 		(at 44.45 34.29)
@@ -12222,6 +12400,12 @@
 		(diameter 1.016)
 		(color 0 0 0 0)
 		(uuid "cdf16225-865b-428c-89bd-8853cabfea19")
+	)
+	(junction
+		(at 270.51 248.92)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "d1097852-0575-4022-bfe4-dc42a5041adb")
 	)
 	(junction
 		(at 121.92 196.85)
@@ -12599,16 +12783,6 @@
 	)
 	(wire
 		(pts
-			(xy 90.17 237.49) (xy 109.474 237.49)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "119b84bd-1d55-4881-8e5a-f2d217b07c59")
-	)
-	(wire
-		(pts
 			(xy 106.68 92.71) (xy 107.95 92.71)
 		)
 		(stroke
@@ -12646,6 +12820,16 @@
 			(type solid)
 		)
 		(uuid "147cf6fd-4a8a-46fb-9e9a-d768c8e45a34")
+	)
+	(wire
+		(pts
+			(xy 270.51 247.65) (xy 270.51 248.92)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1567e793-96eb-47da-8415-03fb0df543ff")
 	)
 	(wire
 		(pts
@@ -12696,6 +12880,16 @@
 			(type default)
 		)
 		(uuid "1e84ca1d-d654-4486-9c0d-581bbc3cd663")
+	)
+	(wire
+		(pts
+			(xy 270.51 240.03) (xy 270.51 236.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "1f4c36d3-b8a7-4d85-ab0d-15ad2fa057a3")
 	)
 	(wire
 		(pts
@@ -12849,6 +13043,16 @@
 	)
 	(wire
 		(pts
+			(xy 270.51 236.22) (xy 246.38 236.22)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2c68c31d-2f3e-4178-b357-d1ef8274ea09")
+	)
+	(wire
+		(pts
 			(xy 44.45 26.67) (xy 44.45 34.29)
 		)
 		(stroke
@@ -12926,6 +13130,16 @@
 			(type solid)
 		)
 		(uuid "35e8a448-b249-436f-8cf3-0beb7190b5b0")
+	)
+	(wire
+		(pts
+			(xy 256.54 243.84) (xy 265.43 243.84)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "36c03816-7fde-40cf-b73c-fb942744c8db")
 	)
 	(wire
 		(pts
@@ -13199,6 +13413,16 @@
 	)
 	(wire
 		(pts
+			(xy 236.22 243.84) (xy 236.22 246.38)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "524280d7-718d-48fb-8755-c0d85e49c81f")
+	)
+	(wire
+		(pts
 			(xy 32.004 135.89) (xy 45.72 135.89)
 		)
 		(stroke
@@ -13219,17 +13443,7 @@
 	)
 	(wire
 		(pts
-			(xy 256.54 243.84) (xy 270.51 243.84)
-		)
-		(stroke
-			(width 0)
-			(type solid)
-		)
-		(uuid "530fbe52-2a9c-427a-b2d2-027e2eede0d1")
-	)
-	(wire
-		(pts
-			(xy 46.99 237.49) (xy 80.01 237.49)
+			(xy 46.99 237.49) (xy 66.04 237.49)
 		)
 		(stroke
 			(width 0)
@@ -13366,6 +13580,16 @@
 			(type solid)
 		)
 		(uuid "5f861893-f49e-4668-abb9-194159d1df4e")
+	)
+	(wire
+		(pts
+			(xy 76.2 237.49) (xy 90.17 237.49)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "5f9a9e69-0ba1-4f69-9cff-919fbceaf7de")
 	)
 	(wire
 		(pts
@@ -13989,16 +14213,6 @@
 	)
 	(wire
 		(pts
-			(xy 256.54 246.38) (xy 270.51 246.38)
-		)
-		(stroke
-			(width 0)
-			(type solid)
-		)
-		(uuid "946e9ba8-6fc4-4520-b4f5-aa7db4343d23")
-	)
-	(wire
-		(pts
 			(xy 356.87 119.38) (xy 383.54 119.38)
 		)
 		(stroke
@@ -14256,6 +14470,16 @@
 			(type solid)
 		)
 		(uuid "a8f0fb18-dbd8-4e02-9bc2-bf62efde0a48")
+	)
+	(wire
+		(pts
+			(xy 231.14 252.73) (xy 231.14 254)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "a9c0f686-63ae-4bdd-b186-be7c9e623515")
 	)
 	(wire
 		(pts
@@ -14539,6 +14763,26 @@
 	)
 	(wire
 		(pts
+			(xy 231.14 245.11) (xy 231.14 243.84)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bc8e2c5c-e372-4dc6-9b7d-8f363e26c986")
+	)
+	(wire
+		(pts
+			(xy 256.54 246.38) (xy 265.43 246.38)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "bdcfaee2-ecfb-4644-a8a8-85d990d37be7")
+	)
+	(wire
+		(pts
 			(xy 30.48 36.83) (xy 45.72 36.83)
 		)
 		(stroke
@@ -14586,6 +14830,16 @@
 			(type solid)
 		)
 		(uuid "c50e5885-8a58-4ee4-a5e7-bcd8f4b418f2")
+	)
+	(wire
+		(pts
+			(xy 256.54 248.92) (xy 270.51 248.92)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "c5350f55-e347-4b51-84e6-bd8ce607bb69")
 	)
 	(wire
 		(pts
@@ -14696,6 +14950,16 @@
 			(type solid)
 		)
 		(uuid "d3042748-88a8-49bb-9d04-37ced56b1444")
+	)
+	(wire
+		(pts
+			(xy 231.14 243.84) (xy 236.22 243.84)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "d4d3059b-f5b3-4e94-8964-7c82ac4be393")
 	)
 	(wire
 		(pts
@@ -14946,6 +15210,16 @@
 			(type default)
 		)
 		(uuid "e50c0174-d60a-41a1-a5a0-868aadfdaedc")
+	)
+	(wire
+		(pts
+			(xy 236.22 246.38) (xy 236.22 248.92)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "e566b3a9-4456-4e43-96c9-48f73d87de7b")
 	)
 	(wire
 		(pts
@@ -16168,7 +16442,7 @@
 		(uuid "a382881d-447e-4c02-8a48-4f80e0b390fe")
 	)
 	(label "GLOBAL_EN"
-		(at 102.87 237.49 180)
+		(at 88.9 237.49 180)
 		(effects
 			(font
 				(size 1.27 1.27)
@@ -21811,6 +22085,86 @@
 		)
 	)
 	(symbol
+		(lib_id "Jumper:Jumper_2_Small_Bridged")
+		(at 270.51 251.46 270)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "336d43cb-66c9-4786-b03b-a0f55ee86f68")
+		(property "Reference" "JP1"
+			(at 272.542 251.46 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "Jumper_2_Small_Bridged"
+			(at 273.05 251.46 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 270.51 251.46 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 270.51 251.46 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" "Jumper, 2-pole, small symbol, bridged"
+			(at 270.51 251.46 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "fdcc8cf9-23b0-4299-96a8-abcd110db55f")
+		)
+		(pin "2"
+			(uuid "e1581fd3-ee81-4f77-af06-90b99dd6121f")
+		)
+		(instances
+			(project "cmb-cat"
+				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/00000000-0000-0000-0000-00005cff706a"
+					(reference "JP1")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+3.3V")
 		(at 175.26 194.31 0)
 		(unit 1)
@@ -22732,6 +23086,82 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 231.14 254 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "4c91e3d8-9527-45d8-b4a3-f4d6333afd54")
+		(property "Reference" "#PWR040"
+			(at 231.14 260.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 231.267 258.3942 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 231.14 254 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 231.14 254 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 231.14 254 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "b8ed9168-0352-4db1-9b6a-cf5c46d9fd21")
+		)
+		(instances
+			(project "cmb-cat"
+				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/00000000-0000-0000-0000-00005cff706a"
+					(reference "#PWR040")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+3.3V")
 		(at 234.95 30.48 90)
 		(unit 1)
@@ -23426,10 +23856,9 @@
 		(on_board yes)
 		(in_pos_files yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "6ecd8d05-1c78-4e24-9ccf-6f2eb610db50")
 		(property "Reference" "U10"
-			(at 248.5233 236.22 0)
+			(at 238.506 239.776 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -25129,6 +25558,152 @@
 		)
 	)
 	(symbol
+		(lib_id "Device:R")
+		(at 270.51 243.84 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "a0092295-027b-4bfc-aa49-8de308b47394")
+		(property "Reference" "R16"
+			(at 273.05 242.57 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "10k"
+			(at 275.082 242.824 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 272.288 243.84 90)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 270.51 243.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 270.51 243.84 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Field4" ""
+			(at 270.51 243.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Field5" ""
+			(at 270.51 243.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Field7" ""
+			(at 270.51 243.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Field6" ""
+			(at 270.51 243.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Part Description" "Resistor 10K M1005 1% 63mW"
+			(at 270.51 243.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Field8" ""
+			(at 270.51 243.84 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "1f7f61a3-f3ed-4f0e-995f-2ff2d9419aa8")
+		)
+		(pin "2"
+			(uuid "92e38fcb-1416-418a-9f34-9c36a3072269")
+		)
+		(instances
+			(project "cmb-cat"
+				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/00000000-0000-0000-0000-00005cff706a"
+					(reference "R16")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:GND")
 		(at 378.46 116.84 270)
 		(unit 1)
@@ -25695,6 +26270,86 @@
 			(project "cmb-cat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/00000000-0000-0000-0000-00005cff706a"
 					(reference "#PWR0121")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "Device:R")
+		(at 231.14 248.92 180)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "b0c672b4-6e8d-43fe-8cd5-0d10584d1a43")
+		(property "Reference" "R67"
+			(at 228.854 247.904 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Value" "0"
+			(at 231.14 248.158 90)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+			)
+		)
+		(property "Footprint" "Resistor_SMD:R_0402_1005Metric"
+			(at 231.14 248.92 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 231.14 248.92 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 231.14 248.92 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "25e17b9f-500a-4d32-8165-da73ad4816a4")
+		)
+		(pin "2"
+			(uuid "7e0f9bc4-a6f7-4f89-9783-2d372d1f877f")
+		)
+		(instances
+			(project "cmb-cat"
+				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/00000000-0000-0000-0000-00005cff706a"
+					(reference "R67")
 					(unit 1)
 				)
 			)
@@ -26588,7 +27243,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 85.09 241.3 0)
+		(at 71.12 241.3 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -26598,7 +27253,7 @@
 		(dnp no)
 		(uuid "cf89c89a-8e0d-4376-9c62-1ecaf5d80a37")
 		(property "Reference" "#PWR0108"
-			(at 85.09 247.65 0)
+			(at 71.12 247.65 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -26609,7 +27264,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 85.217 245.6942 0)
+			(at 71.247 245.6942 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -26619,7 +27274,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 85.09 241.3 0)
+			(at 71.12 241.3 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -26630,7 +27285,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 85.09 241.3 0)
+			(at 71.12 241.3 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -26641,7 +27296,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 85.09 241.3 0)
+			(at 71.12 241.3 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -26911,7 +27566,7 @@
 	)
 	(symbol
 		(lib_id "Switch:CK_KMS2xxG")
-		(at 85.09 237.49 0)
+		(at 71.12 237.49 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -26922,7 +27577,7 @@
 		(fields_autoplaced yes)
 		(uuid "d938c06c-41a5-43fe-87c3-72998d3387d3")
 		(property "Reference" "SW2"
-			(at 85.09 229.87 0)
+			(at 71.12 229.87 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -26932,7 +27587,7 @@
 			)
 		)
 		(property "Value" "CK_KMS2xxG"
-			(at 85.09 232.41 0)
+			(at 71.12 232.41 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -26942,7 +27597,7 @@
 			)
 		)
 		(property "Footprint" "Button_Switch_SMD:SW_SPST_CK_KMS2xxGP"
-			(at 85.09 232.41 0)
+			(at 71.12 232.41 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -26953,7 +27608,7 @@
 			)
 		)
 		(property "Datasheet" "https://www.ckswitches.com/media/1482/kms.pdf"
-			(at 85.09 232.41 0)
+			(at 71.12 232.41 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -26964,7 +27619,7 @@
 			)
 		)
 		(property "Description" "Microminiature SMT Side Actuated, 4.2 x 2.8 x 1.42mm, without pegs, with shield pin"
-			(at 85.09 237.49 0)
+			(at 71.12 237.49 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -27361,6 +28016,82 @@
 			(project "cmb-cat"
 				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/00000000-0000-0000-0000-00005cff706a"
 					(reference "#PWR036")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
+		(lib_id "power:GND")
+		(at 270.51 254 0)
+		(unit 1)
+		(body_style 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(in_pos_files yes)
+		(dnp no)
+		(uuid "dd52f029-c31a-49d7-989a-fe6c2da5c9f1")
+		(property "Reference" "#PWR042"
+			(at 270.51 260.35 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Value" "GND"
+			(at 270.637 258.3942 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Footprint" ""
+			(at 270.51 254 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Datasheet" ""
+			(at 270.51 254 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Description" ""
+			(at 270.51 254 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(pin "1"
+			(uuid "a65afcff-b20c-47fa-8c61-aa18ca4510cb")
+		)
+		(instances
+			(project "cmb-cat"
+				(path "/e63e39d7-6ac0-4ffd-8aa3-1841a4541b55/00000000-0000-0000-0000-00005cff706a"
+					(reference "#PWR042")
 					(unit 1)
 				)
 			)

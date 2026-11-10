@@ -658,7 +658,7 @@
 				)
 				(uuid "31ca19d3-6b36-4118-a4b0-44ffa013d04a")
 			)
-			(table_cell "PCF85063AT RTC"
+			(table_cell "CAT24C32 EEPROM"
 				(exclude_from_sim no)
 				(at 168.91 20.32 0)
 				(size 29.21 2.54)
@@ -675,7 +675,7 @@
 				)
 				(uuid "d011b8f6-8bc5-4771-9198-fb3d5cd02378")
 			)
-			(table_cell "CMB-CAT"
+			(table_cell "CMC-101"
 				(exclude_from_sim no)
 				(at 198.12 20.32 0)
 				(size 19.05 2.54)
@@ -692,7 +692,7 @@
 				)
 				(uuid "698dbb19-ccb6-4a03-a6f2-b1075dc53c90")
 			)
-			(table_cell "fixed, not changeable"
+			(table_cell "A2=0, A1=0, A0=1"
 				(exclude_from_sim no)
 				(at 217.17 20.32 0)
 				(size 46.99 2.54)
@@ -709,7 +709,7 @@
 				)
 				(uuid "e00420ed-9fef-4ae2-bfe9-3439383953f3")
 			)
-			(table_cell "0x52–0x55"
+			(table_cell "0x52"
 				(exclude_from_sim no)
 				(at 153.67 22.86 0)
 				(size 15.24 2.54)
@@ -726,7 +726,7 @@
 				)
 				(uuid "43312c2d-a34f-4dd1-8c02-c0a4e3398b7a")
 			)
-			(table_cell "(free)"
+			(table_cell "24LC32 EEPROM"
 				(exclude_from_sim no)
 				(at 168.91 22.86 0)
 				(size 29.21 2.54)
@@ -743,7 +743,7 @@
 				)
 				(uuid "1281f4b4-b1b1-4fcd-a770-0473e77c5b3f")
 			)
-			(table_cell "—"
+			(table_cell "CMC301"
 				(exclude_from_sim no)
 				(at 198.12 22.86 0)
 				(size 19.05 2.54)
@@ -760,7 +760,7 @@
 				)
 				(uuid "9e9b13a8-c854-4ba7-848d-a7b168c25d31")
 			)
-			(table_cell "available for further EEPROMs"
+			(table_cell "A2=0, A1=1, A0=0"
 				(exclude_from_sim no)
 				(at 217.17 22.86 0)
 				(size 46.99 2.54)
@@ -777,7 +777,7 @@
 				)
 				(uuid "be82e659-0f87-4417-98ab-325dcfb9a361")
 			)
-			(table_cell "0x56"
+			(table_cell "0x53"
 				(exclude_from_sim no)
 				(at 153.67 25.4 0)
 				(size 15.24 2.54)
@@ -794,7 +794,7 @@
 				)
 				(uuid "ae9377c7-d819-4323-9e68-989204468066")
 			)
-			(table_cell "CAT24C32 EEPROM"
+			(table_cell ""
 				(exclude_from_sim no)
 				(at 168.91 25.4 0)
 				(size 29.21 2.54)
@@ -811,7 +811,7 @@
 				)
 				(uuid "5b901154-a9c2-4d3d-99c6-7637a556beae")
 			)
-			(table_cell "CMC101"
+			(table_cell ""
 				(exclude_from_sim no)
 				(at 198.12 25.4 0)
 				(size 19.05 2.54)
@@ -828,7 +828,7 @@
 				)
 				(uuid "9bfd3fc8-2051-4602-86b7-5ec794a35cf5")
 			)
-			(table_cell "A2=0, A1=0, A0=1"
+			(table_cell ""
 				(exclude_from_sim no)
 				(at 217.17 25.4 0)
 				(size 46.99 2.54)
@@ -845,7 +845,7 @@
 				)
 				(uuid "f04650b1-c0d4-417d-b21c-459046a96177")
 			)
-			(table_cell "0x57"
+			(table_cell "0x54"
 				(exclude_from_sim no)
 				(at 153.67 27.94 0)
 				(size 15.24 2.54)
@@ -862,7 +862,7 @@
 				)
 				(uuid "816a07ca-e2b2-4c05-9dd1-64567bf13af2")
 			)
-			(table_cell "24LC32 EEPROM"
+			(table_cell ""
 				(exclude_from_sim no)
 				(at 168.91 27.94 0)
 				(size 29.21 2.54)
@@ -879,7 +879,7 @@
 				)
 				(uuid "35e6f0a0-f935-4dc6-9449-30c0ead2753f")
 			)
-			(table_cell "CMC301"
+			(table_cell ""
 				(exclude_from_sim no)
 				(at 198.12 27.94 0)
 				(size 19.05 2.54)
@@ -896,7 +896,7 @@
 				)
 				(uuid "f46c3771-a0da-4f0d-9374-c539ecc34a45")
 			)
-			(table_cell "A2=1, A1=1, A0=1"
+			(table_cell ""
 				(exclude_from_sim no)
 				(at 217.17 27.94 0)
 				(size 46.99 2.54)

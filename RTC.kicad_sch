@@ -1433,6 +1433,12 @@
 		(uuid "7e232027-e1fd-4d55-a751-dd67130d7d22")
 	)
 	(junction
+		(at 91.44 68.58)
+		(diameter 0)
+		(color 0 0 0 0)
+		(uuid "a78201a1-9495-4797-a5dc-93ca5f67a86f")
+	)
+	(junction
 		(at 91.44 41.91)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -1466,13 +1472,33 @@
 	)
 	(wire
 		(pts
-			(xy 91.44 66.04) (xy 91.44 73.66)
+			(xy 91.44 66.04) (xy 91.44 68.58)
 		)
 		(stroke
 			(width 0)
 			(type solid)
 		)
 		(uuid "133d5403-9be3-4603-824b-d3b76147e745")
+	)
+	(wire
+		(pts
+			(xy 88.9 66.04) (xy 88.9 68.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "14527f60-f4f0-4572-ae33-cf4aa0e4fe1c")
+	)
+	(wire
+		(pts
+			(xy 91.44 68.58) (xy 91.44 69.85)
+		)
+		(stroke
+			(width 0)
+			(type solid)
+		)
+		(uuid "15aedd39-c22c-4237-9053-b025515dde9e")
 	)
 	(wire
 		(pts
@@ -1513,6 +1539,16 @@
 			(type solid)
 		)
 		(uuid "25247d0c-5910-484b-9651-5750d422a450")
+	)
+	(wire
+		(pts
+			(xy 88.9 68.58) (xy 91.44 68.58)
+		)
+		(stroke
+			(width 0)
+			(type default)
+		)
+		(uuid "2caa38e8-3081-4ce1-955d-072690e0e8d6")
 	)
 	(wire
 		(pts
@@ -1889,7 +1925,7 @@
 	)
 	(symbol
 		(lib_id "power:GND")
-		(at 91.44 73.66 0)
+		(at 91.44 69.85 0)
 		(unit 1)
 		(body_style 1)
 		(exclude_from_sim no)
@@ -1899,7 +1935,7 @@
 		(dnp no)
 		(uuid "00000000-0000-0000-0000-00005d30bf83")
 		(property "Reference" "#PWR028"
-			(at 91.44 80.01 0)
+			(at 91.44 76.2 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1910,7 +1946,7 @@
 			)
 		)
 		(property "Value" "GND"
-			(at 91.567 78.0542 0)
+			(at 91.567 74.2442 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -1920,7 +1956,7 @@
 			)
 		)
 		(property "Footprint" ""
-			(at 91.44 73.66 0)
+			(at 91.44 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1931,7 +1967,7 @@
 			)
 		)
 		(property "Datasheet" ""
-			(at 91.44 73.66 0)
+			(at 91.44 69.85 0)
 			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
@@ -1942,7 +1978,7 @@
 			)
 		)
 		(property "Description" ""
-			(at 91.44 73.66 0)
+			(at 91.44 69.85 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
