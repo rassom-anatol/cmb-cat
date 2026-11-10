@@ -27,7 +27,7 @@
 					)
 				)
 			)
-			(property "Value" "74LVC1G07_copy"
+			(property "Value" "SN74LVC1G07DCK3"
 				(at 0 -3.81 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -48,7 +48,7 @@
 					)
 				)
 			)
-			(property "Datasheet" "http://www.ti.com/lit/sg/scyt129e/scyt129e.pdf"
+			(property "Datasheet" "https://www.ti.com/lit/ds/symlink/sn74lvc1g07.pdf"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -60,6 +60,61 @@
 				)
 			)
 			(property "Description" "Single Buffer Gate w/ Open Drain, Low-Voltage CMOS"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Field4" "DigiKey"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Field5" "296-SN74LVC1G07DCK3CT-ND"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Field6" "SN74LVC1G07DCK3"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Field7" "Texas Instruments"
+				(at 0 0 0)
+				(show_name no)
+				(do_not_autoplace no)
+				(hide yes)
+				(effects
+					(font
+						(size 1.27 1.27)
+					)
+				)
+			)
+			(property "Part Description" "Buffer, Non-Inverting 1 Element 1 Bit per Element Open Drain Output SC-70-5"
 				(at 0 0 0)
 				(show_name no)
 				(do_not_autoplace no)
@@ -2096,8 +2151,8 @@
 				)
 			)
 		)
-		(property "Value" "74LVC1G07SE-7"
-			(at 225.425 52.705 0)
+		(property "Value" "SN74LVC1G07DCK3"
+			(at 226.568 52.832 0)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -2117,7 +2172,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "https://www.diodes.com/assets/Datasheets/74LVC1G07.pdf"
+		(property "Datasheet" "https://www.ti.com/lit/ds/symlink/sn74lvc1g07.pdf"
 			(at 215.9 57.15 0)
 			(hide yes)
 			(show_name no)
@@ -2138,7 +2193,7 @@
 				)
 			)
 		)
-		(property "Field4" "Farnell"
+		(property "Field4" "DigiKey"
 			(at 215.9 57.15 0)
 			(hide yes)
 			(show_name no)
@@ -2149,7 +2204,7 @@
 				)
 			)
 		)
-		(property "Field5" "2425492"
+		(property "Field5" "296-SN74LVC1G07DCK3CT-ND"
 			(at 215.9 57.15 0)
 			(hide yes)
 			(show_name no)
@@ -2160,7 +2215,7 @@
 				)
 			)
 		)
-		(property "Field6" "74LVC1G07SE-7"
+		(property "Field6" "SN74LVC1G07DCK3"
 			(at 215.9 57.15 0)
 			(hide yes)
 			(show_name no)
@@ -2171,7 +2226,7 @@
 				)
 			)
 		)
-		(property "Field7" "Diodes"
+		(property "Field7" "Texas Instruments"
 			(at 215.9 57.15 0)
 			(hide yes)
 			(show_name no)
@@ -2182,7 +2237,7 @@
 				)
 			)
 		)
-		(property "Part Description" "Buffer, Non-Inverting 1 Element 1 Bit per Element Open Drain Output SOT-353"
+		(property "Part Description" "Buffer, Non-Inverting 1 Element 1 Bit per Element Open Drain Output SC-70-5"
 			(at 215.9 57.15 0)
 			(hide yes)
 			(show_name no)
