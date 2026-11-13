@@ -2108,6 +2108,17 @@
 			(embedded_fonts no)
 		)
 	)
+	(text "Single chassis-to-GND bond.\nDO NOT REMOVE."
+		(exclude_from_sim no)
+		(at 55.118 133.096 0)
+		(effects
+			(font
+				(size 2.007 2.007)
+			)
+			(justify left bottom)
+		)
+		(uuid "b553d5aa-96d2-4a8a-b848-58f7ccba6168")
+	)
 	(junction
 		(at 52.07 125.73)
 		(diameter 0)

@@ -13,8 +13,9 @@ Addresses below are **7-bit**.
 | Address | Device | Board | How the address is set |
 |---|---|---|---|
 | **0x50** | 24LC32 EEPROM | CMB-CAT | A2=0, A1=0, A0=0 |
-| **0x51** | PCF85063AT RTC | CMB-CAT | fixed, not changeable |
+| 0x51 | *(free)* | — | released when the RTC moved to 0x6F |
 | 0x52–0x55 | *(free)* | — | available for further EEPROMs |
+| **0x6F** | MCP7940N RTC (U20) | CMB-CAT | fixed, not changeable |
 | **0x56** | CAT24C32YI-GT3 EEPROM | CMC101 | A2=1, A1=1, A0=0 |
 | **0x57** | EEPROM (part TBD) | CMC301 | A2=1, A1=1, A0=1 |
 | **0x60** | TUSB320 | CMB-CAT | ADDR pulled low (0x61 if pulled high) |
@@ -27,8 +28,15 @@ Addresses below are **7-bit**.
 
 ## Constraints that drove this
 
-**0x51 is reserved by the RTC.** The PCF85063AT's address is fixed and sits inside the
-24Cxx family's 0x50–0x57 range. No EEPROM may be strapped to 0x51.
+**0x51 is no longer reserved.** The RTC was changed from a PCF85063AT (fixed 0x51,
+inside the 24Cxx 0x50–0x57 range) to an **MCP7940N at 0x6F**, whose address is also fixed —
+the control code is `1101` plus three chip-select bits hardwired to `1`. That releases the
+whole 0x50–0x57 block to the 24Cxx family.
+
+**The 24LC32 address pins have no internal pulls.** The datasheet is explicit: *"These
+inputs must be connected to either VCC or VSS."* Unlike onsemi's CAT24C32, which pulls them
+down internally, a floating pin on a 24LC32 gives an undefined address. U10's A0/A1/A2 are
+tied to GND through R67 (0R) giving 0x50; U18's are tied directly.
 
 **PCA9538 has only two address pins**, giving four addresses (0x70–0x73). Two are used.
 If a third expander is ever needed, 0x72 and 0x73 remain; beyond that, the PCA9538A variant
@@ -54,3 +62,17 @@ collide at 0x64 until one is reprogrammed.
 
 - **TUSB320 ADDR strap** — 0x60 with ADDR low, 0x61 with ADDR high; confirm which is fitted
 - Scan the assembled stack with `i2cdetect -y 0` and check the result matches this table
+
+---
+
+## Changed 2026-11-09
+
+RTC moved **0x51 → 0x6F** (PCF85063AT → MCP7940N). The move was not made to free the
+address — it was chosen for a 3 × 2 mm TDFN package, automatic battery switch-over that
+removes the BAT54C diode-OR, and the absence of any trickle charger, which enforces the
+"ship without a cell, no charging path" requirement in silicon rather than by a diode
+arrangement. Freeing 0x51 was a side effect.
+
+`VBATEN` (RTCWKDAY 03h bit 3) **must be set in firmware** or battery backup never engages —
+the hardware switchover is automatic but the VBAT input is disabled by default. This belongs
+in the production test: pull power, restore, confirm time was kept.

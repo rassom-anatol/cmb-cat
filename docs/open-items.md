@@ -70,14 +70,21 @@ distributed-clock events in PTP time — a way to correlate the motion and coord
 domains. If `SYNC_OUT` goes to a connector it needs GND adjacent on both sides and series
 termination at the source. `SYNC_IN` is pin 16, which becomes `Fan_tacho` on CM5.
 
-**Settle the RTC backup.**
-No user-replaceable holder meets the under-10 mm constraint: Keystone 3001 is 14.5 × 11.4 mm,
-Keystone 2998 is 11.8 × 9.9 mm, and vertical CR1220 holders stand about 12 mm tall. The
-option that does fit is the existing `J17` connector with the cell mounted elsewhere in the
-enclosure. Alternatives are accepting the Keystone 3001's footprint, or a supercapacitor
-(Kemet `FC0H224ZFTBR24`, 0.22 F 5.5 V SMD, ~37 h holdup, no battery shipping classification).
-Decision made so far: **ship without a cell; the user buys a primary CR1220**, which means
-the board must have **no charging path** — D3's BAT54C arrangement already blocks it.
+**RTC backup — settled.** The RTC is now an **MCP7940N (U20)** at 0x6F in TDFN-8 3x2mm.
+It has automatic battery switch-over at VTRIP 1.3-1.7 V, so the BAT54C diode-OR (D3) is gone
+and the cell connects straight to VBAT (pin 3) from J6. It has **no trickle charger anywhere
+in the datasheet**, so the "ship without a cell, the user fits a primary CR1220" requirement
+is now enforced by the silicon rather than by a diode arrangement.
+
+Still to do on it:
+- **`VBATEN` (RTCWKDAY 03h bit 3) must be set in firmware** or backup never engages. The
+  switchover is automatic but the VBAT input is disabled by default. Production test: pull
+  power, restore, confirm the time was kept.
+- **J6 needs a polarised, keyed housing.** It is a generic `Conn_01x02` and the end user
+  fits their own cell, so a reversed insertion puts -3 V on VBAT against a -0.6 V absolute
+  maximum. Fix it mechanically; a series diode or clamp is worse.
+- **Add 100 nF on VBAT at pin 3.** The cell sits at the end of a connector and flying leads,
+  and a CR1220's ESR climbs from ~15 ohm fresh to hundreds as it depletes.
 
 **Confirm CMC301's EEPROM part.**
 `docs/i2c-address-map.md` lists it at 0x57 as 24LC32. Confirm that is the part fitted.
@@ -174,18 +181,42 @@ x=282 on a 431.8 mm page). Putting it there means no cross-sheet plumbing at all
 signal is already a local label on that sheet. Move it to its own sheet later if you prefer;
 it is a drag in the GUI.
 
-**Connector: Hirose `FH12-30S-0.5SH(55)`,** 30-way, 0.5 mm, right-angle ZIF.
-KiCad footprint `Connector_FFC-FPC:Hirose_FH12-30S-0.5SH_1x30-1MP_P0.50mm_Horizontal`.
+**Connector: Hirose `FH12-24S-0.5SH(55)`** (J21), 24-way, 0.5 mm, right-angle ZIF,
+bottom contact. The 30-way J20 was removed. KiCad ships no FH12A (top-contact) land pattern,
+and the `(55)` suffix is the active part - the bare `FH12-24S-0.5SH` is obsolete. 14,358 in
+stock at the time of selection.
 
-> **The base part `FH12-30S-0.5SH` is obsolete.** The `(55)` suffix is the active
-> replacement and has the same land pattern. Do **not** substitute `FH12A-30S-0.5SH(55)`:
-> the "A" variant has contacts on the **top** and a body of 19.5 x 7 mm against the
-> FH12's 19.1 x 6.4 mm, so it is a different footprint. KiCad's footprint is the
-> bottom-contact FH12.
+> Contact side decides the cable: with bottom contacts at both ends, whether you need a
+> same-side (Molex Premo-Flex Type A) or opposite-side (Type D) jumper depends on how the
+> two boards face each other. Settle that against the mechanical layout before ordering.
 
-Contact side also decides the cable: with bottom contacts at both ends, whether you need a
-same-side (Molex Premo-Flex Type A) or opposite-side (Type D) jumper depends on how the two
-boards face each other. Settle that against the mechanical layout before ordering.
+**Signal count was reduced from 15 to ~12** once CMC301 gained its own expander at 0x71.
+Only these cannot go through it: SPI4 SCLK/MOSI/MISO/CE0_N, SPI6 SCLK/MOSI/MISO/CE0_N/CE1_N
+(MHz rate, and CE must toggle per frame), and SDA0/SCL0 (the bus that reaches the expander
+cannot bootstrap itself). `CTRL_ENABLE` and `CMC301_SLEEP_N` moved to the CMC301 expander,
+mirroring what U11 does for CMC101. `SPI4_CE1_N` is not needed on the FFC at all - it goes
+to GPIO25, allocated to the TMC8100, which lives on CMB-CAT.
+
+`CTRL_STATUS` was kept as a dedicated conductor: per the TMC6460 errata the part clears
+`DRV_EN` itself on fault only *"in most cases"*, and the overtemperature case with
+`OVERTEMP_LATCH = 0` does not - so some faults need the host to learn about them faster than
+a poll interval.
+
+**Spend freed conductors on ground, not a smaller connector.** At 0.5 mm pitch over flat
+flex with 8 MHz SPI, return-path quality is the limit.
+
+**Pin ordering: guard the clock.** The original order (`GND SCLK MOSI GND MISO CE0 ...`) was
+signal-listing order with a ground every second pin, not a considered choice, and it is the
+wrong grouping - SCLK is the only aggressor, switching every cycle with the fastest edges,
+and it sat next to MOSI, which must be valid at the clock edge. Worse, they shared both
+adjacent grounds, so their return currents commingled. At identical conductor count prefer:
+
+```
+GND  SCLK  GND  MOSI  MISO  GND  CE0  CE1  GND
+```
+
+SCLK gets a dedicated return on both sides; MOSI/MISO sit together harmlessly since both are
+referenced to the same clock edge and quiet between edges.
 
 ### Pinout, as wired
 
@@ -242,17 +273,12 @@ Was placed with power and I2C only. Now also wired:
 - `INT` (11) to `EXP_INT` with `R58` (10k) pull-up — open-drain, so the pull-up is required
 - `IO0` (2) drives `CMC301_SLEEPN`
 
-**IO1 to IO7 are unassigned** and need your intent. Candidates found while wiring:
+**IO0-IO6 are now assigned** to CMC101 control: `CMC101_ENABLE`, `CMC101_STATUS`,
+`CMC101_FAULT`, `CMC101_FAN`, `CMC101_STO_WDO_N`, `CMC101_RST_N`, and `CMC301_RST_N`. IO7 is
+free.
 
-- **`USB_INT`** — the TUSB320 interrupt on `CM4_HighSpeed.kicad_sch` currently terminates at
-  its own 10k pull-up and goes nowhere. This is the signal you asked about when the expander
-  was chosen. Routing it here needs a hierarchical label on CM4_HighSpeed plus a root sheet
-  pin, the same pattern used for SPI0.
-- **`nRTC_INT`** — likewise dangling, but see the warning below before connecting it.
-- A fan enable, if the thermal measurement says you need one.
-
-The PCA9538 has no internal pull-downs on its I/Os. Configure the unused ones as outputs in
-firmware rather than leaving them floating as inputs.
+The PCA9538 has no internal pull-downs on its I/Os. Configure IO7 as an output in firmware
+rather than leaving it floating as an input.
 
 **`EXP_INT` has no destination.** Every CM4 GPIO is allocated, so the expander is polled over
 I2C by default. That is fine for housekeeping. If you want a real interrupt it has to share
@@ -330,6 +356,51 @@ Note the position loop then resolves to ABN counts, not encoder bits.
 
 ---
 
+## Open decisions
+
+**Current limiting on the 3.3 V going out to the FFC.** U12 (RT9742SNGV) was removed: the
+`S` suffix puts its limit in the 0.6 / 0.7 / 0.8 A group, about 9x the 77 mA worst-case
+CMC301 load (3x TMC6460 `IVCCIO_DRVOFF` at 25 mA max, plus EEPROM and expander) and *above*
+the FH12's 0.5 A per-contact rating, so a fault could damage a contact without tripping it.
+
+A resettable fuse was considered and rejected: holding 77 mA needs a 100-150 mA device, and
+those carry 2-5 ohm series resistance - 150-375 mV at load on a 3.3 V rail, drifting upward
+with age and each trip.
+
+Want an adjustable-limit load switch set to **~200-250 mA**, roughly 3x max load and safely
+under the contact rating. Candidates:
+
+| Part | Range | Notes |
+|---|---|---|
+| `TPS2553DDBVR` | 75 mA - 1.7 A | SOT-23-6, 2096 in stock. No KiCad symbol. Note `TPS2553DBVR` (one D) was backordered; the suffix also selects enable polarity. |
+| `MIC2008YM6` | 0.2 - 2 A | SOT-23-6 or 2x2 DFN, **KiCad symbol exists**, adds slew control and automatic load discharge - the discharge matters so a software power-cycle actually resets CMC301. |
+
+The protection is the weaker half of the argument. The stronger reasons are **inrush**
+(mating the FFC powered connects three TMC6460s' worth of decoupling across 3.3 V and can
+brown out the CM4), the **enable pin** (cutting CMC301's supply is the only hammer left when
+I2C and SPI are both wedged), and the **fault flag** into a spare expander input.
+
+No current limit helps with an FFC inserted one position off, putting 3.3 V on a signal pin.
+A keyed or asymmetric cable end is the only defence there.
+
+**Keep 3.3 V on the FFC rather than regulating locally on CMC301.** An LDO does not reduce
+FFC current - input equals output - so 5 V plus a local LDO carries the same 77 mA and burns
+130 mW for headroom against a 5-8 mV drop that does not matter. Moving the load off CMB-CAT
+entirely saves 75 mA of a ~500 mA design target, which does not change a regulator size
+class; the LAN9252 at 194 mA is nearly 60% of the subtotal and is where the weight is.
+CMC301 self-powering from its motor rail would free the conductors but leaves the CM4 driving
+SPI into unpowered TMC6460s, back-powering them through their I/O ESD diodes.
+
+---
+
+## Footprints still unassigned
+
+- **U18** (24LC32, EtherCAT config EEPROM) - SOIC-8 is the obvious choice but the field is
+  empty, so it will not reach layout.
+- **H3** (MountingHole_Pad on the EtherCAT chassis island) - empty.
+
+---
+
 ## Verification before release
 
 - Scan the assembled stack with `i2cdetect -y 0` against `docs/i2c-address-map.md`
@@ -353,3 +424,24 @@ Note the position loop then resolves to ABN counts, not encoder bits.
   the exported netlist
 - LAN9252 symbol swapped from TQFP-EP64 to QFN-64 (`LAN9252I/ML`), TQFP symbol and footprint removed
 - Sheet paper sizes set: EtherCAT / CM4_GPIO / CM4_HighSpeed / PSUs on US Ledger, RTC and root on US Letter
+- RTC swapped PCF85063AT (0x51) to MCP7940N (0x6F); D3 BAT54C removed, VBAT direct to J6
+- RTC wake chain migrated +5V to +3.3V - R19, R20, C22 and U14 pin 5. MFP needs its pull-up
+  to VCC, and 5 V on it exceeded the VCC+0.3 V absolute maximum; fixing R19 alone would have
+  broken the wake circuit, since the pulse coupled through C24 is only as large as the swing
+  on nRTC_INT and a 3.3 V step leaves U14's input at 1.7 V, above V_IL for a 5 V LVC gate
+- Y2 crystal X32K768S301 (unavailable) to ABS07-32.768KHZ-7-T, 7 pF CL, same 3215 footprint.
+  C50/C61 6.8 pF load caps added - the MCP7940N has none internally where the PCF85063AT did
+- 74LVC1G07SE-7 (unavailable) to SN74LVC1G07DCK3 across all five instances, the library
+  symbol and both cached copies, so an update-from-library cannot revert it
+- LAN9252 VDD33 (pin 5) moved off FB3 to +3.3V direct; FB3 now feeds pin 58 alone
+- LAN9252 LED strap direction corrected - the strap value latched at reset selects
+  open-drain vs open-source, so the LED must follow it
+- Shield and chassis grounding unified across all four connectors - see
+  `docs/chassis-grounding.md`
+- C1 (100n 16V 0402) on the MagJack centre taps replaced by C107 (1n/2kV 1206)
+- U10 address straps: A0/A1/A2 to GND through R67 (0R) giving 0x50. The 24LC32 has **no**
+  internal pulls - *"these inputs must be connected to either VCC or VSS"* - unlike onsemi's
+  CAT24C32. WP is on jumper JP1 with R16
+- J20 (30-way FFC) replaced by J21 (FH12-24S-0.5SH(55))
+- TMC8100 symbol and footprint added to the project library; part not yet placed
+- Watchdog pet line buffered (U8) with R69 pull-up and D3/R11 heartbeat LED
