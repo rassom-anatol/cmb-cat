@@ -15,12 +15,12 @@ Addresses below are **7-bit**.
 | **0x50** | 24LC32 EEPROM | CMB-CAT | A2=0, A1=0, A0=0 |
 | 0x51 | *(free)* | — | released when the RTC moved to 0x6F |
 | 0x52–0x55 | *(free)* | — | available for further EEPROMs |
-| **0x6F** | MCP7940N RTC (U20) | CMB-CAT | fixed, not changeable |
 | **0x56** | CAT24C32YI-GT3 EEPROM | CMC101 | A2=1, A1=1, A0=0 |
 | **0x57** | EEPROM (part TBD) | CMC301 | A2=1, A1=1, A0=1 |
 | **0x60** | TUSB320 | CMB-CAT | ADDR pulled low (0x61 if pulled high) |
 | **0x64** | ATSHA204A | CMB-CAT | config-zone default `0xC8` |
 | **0x65** | ATSHA204A | CMC101 | **must be reprogrammed** — see below |
+| **0x6F** | MCP7940N RTC (U20) | CMB-CAT | fixed, not changeable |
 | **0x70** | PCA9538 I/O expander | CMB-CAT | A1=0, A0=0 |
 | **0x71** | PCA9538 I/O expander | CMC301 | A1=0, A0=1 |
 
