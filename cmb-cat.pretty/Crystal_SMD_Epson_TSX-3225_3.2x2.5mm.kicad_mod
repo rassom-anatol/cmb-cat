@@ -1,0 +1,193 @@
+(footprint "Crystal_SMD_Epson_TSX-3225_3.2x2.5mm"
+	(version 20240108)
+	(generator "pcbnew")
+	(generator_version "9.0")
+	(layer "F.Cu")
+	(descr "Epson TSX-3225 4-pad SMD crystal, 3.2x2.5x0.6mm. Land from datasheet FA-238(V),TSX-3225 Rev Dec 2015: pads 1.4 x 1.15 mm on 2.2 x 1.6 mm pitch. Pads 2 and 4 are bonded to the cover and MUST be grounded. Differs from the generic 3225 land, which uses 1.2 mm pads on 1.7 mm Y pitch.")
+	(tags "crystal SMD Epson TSX-3225 3225 4pad 25MHz")
+	(attr smd)
+	(property "Reference" "REF**"
+		(at 0 -2.6350000000000002 0)
+		(layer "F.SilkS")
+		(uuid "f08d6eb9-a858-4f29-b43c-cc7a005b3132")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Value" "Crystal_SMD_Epson_TSX-3225_3.2x2.5mm"
+		(at 0 2.6350000000000002 0)
+		(layer "F.Fab")
+		(uuid "c2b42af2-e380-4487-8a2b-14f024c24613")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "b326e4ac-09a9-47d1-bd19-326f83179c12")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "eaf79e5c-5445-47fc-a712-42b33d0d70c7")
+		(effects
+			(font
+				(size 1 1)
+				(thickness 0.15)
+			)
+		)
+	)
+	(fp_line
+		(start -1.1 1.25)
+		(end 1.6 1.25)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "4d6fc93d-4cd8-44bf-b740-9da291f7f6ff")
+	)
+	(fp_line
+		(start 1.6 1.25)
+		(end 1.6 -1.25)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "1f0700df-885a-4cb1-b564-cac139f9aeb8")
+	)
+	(fp_line
+		(start 1.6 -1.25)
+		(end -1.6 -1.25)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "26f7d44f-3071-428e-87fd-c8dcd85a0f75")
+	)
+	(fp_line
+		(start -1.6 -1.25)
+		(end -1.6 0.75)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "5819829e-e849-4b90-b8b2-8e746d34fa6e")
+	)
+	(fp_line
+		(start -1.6 0.75)
+		(end -1.1 1.25)
+		(stroke
+			(width 0.1)
+			(type solid)
+		)
+		(layer "F.Fab")
+		(uuid "792ce653-c8b5-435d-b373-8bad4da6591d")
+	)
+	(fp_line
+		(start -2.06 -1.635)
+		(end -2.06 1.635)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "6cd46607-90d3-4711-bad8-99bc27be4c17")
+	)
+	(fp_line
+		(start -2.06 1.635)
+		(end 2.06 1.635)
+		(stroke
+			(width 0.12)
+			(type solid)
+		)
+		(layer "F.SilkS")
+		(uuid "25ec61f4-9833-4e3f-84c7-71482aefb188")
+	)
+	(fp_line
+		(start -2.16 -1.735)
+		(end 2.16 -1.735)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "7e0bef1e-91dd-4939-9dd9-00836021c3e6")
+	)
+	(fp_line
+		(start 2.16 -1.735)
+		(end 2.16 1.735)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "990e617b-2c38-43b0-b369-62534f902fd2")
+	)
+	(fp_line
+		(start 2.16 1.735)
+		(end -2.16 1.735)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "9f8dbda0-0f4d-43fc-9578-196a776fbc08")
+	)
+	(fp_line
+		(start -2.16 1.735)
+		(end -2.16 -1.735)
+		(stroke
+			(width 0.05)
+			(type solid)
+		)
+		(layer "F.CrtYd")
+		(uuid "6d7b0203-515c-4077-a541-8931032afb91")
+	)
+	(pad "1" smd roundrect
+		(at -1.1 0.8)
+		(size 1.4 1.15)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(roundrect_rratio 0.1)
+		(uuid "0f7edb0d-026a-47c3-b8f2-a33351acb7ed")
+	)
+	(pad "2" smd roundrect
+		(at 1.1 0.8)
+		(size 1.4 1.15)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(roundrect_rratio 0.1)
+		(uuid "d7b624ff-9446-4165-b0ef-c8e2b5c518c1")
+	)
+	(pad "3" smd roundrect
+		(at 1.1 -0.8)
+		(size 1.4 1.15)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(roundrect_rratio 0.1)
+		(uuid "d8e0aa92-ddc4-44ed-b7d5-ae939d0d2434")
+	)
+	(pad "4" smd roundrect
+		(at -1.1 -0.8)
+		(size 1.4 1.15)
+		(layers "F.Cu" "F.Paste" "F.Mask")
+		(roundrect_rratio 0.1)
+		(uuid "4a1261a2-d49c-4690-959c-fca11f41477f")
+	)
+)

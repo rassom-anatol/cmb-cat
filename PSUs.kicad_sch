@@ -5016,7 +5016,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "Conn_01x02"
+		(property "Value" "Micro-Fit 3.0 43650-0210"
 			(at 31.75 34.2899 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -5027,7 +5027,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Connector_Molex:Molex_Micro-Fit_3.0_43650-0210_1x02-1MP_P3.00mm_Horizontal"
 			(at 34.29 31.75 0)
 			(hide yes)
 			(show_name no)
@@ -10410,7 +10410,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_Pad"
 			(at 36.83 134.62 0)
 			(hide yes)
 			(show_name no)

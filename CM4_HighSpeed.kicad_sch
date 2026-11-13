@@ -9564,7 +9564,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_Pad"
 			(at 270.51 133.35 0)
 			(hide yes)
 			(show_name no)

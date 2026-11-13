@@ -10826,7 +10826,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "0R"
+		(property "Value" "499R"
 			(at 105.918 72.644 90)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11149,7 +11149,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "Package_SO:SOIC-8_3.9x4.9mm_P1.27mm"
 			(at 370.84 43.18 0)
 			(hide yes)
 			(show_name no)
@@ -13737,7 +13737,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "25MHz"
+		(property "Value" "ABM8-25.000MHZ-10-D1G-T"
 			(at 89.28 78.61 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -13748,7 +13748,7 @@
 				(justify left)
 			)
 		)
-		(property "Footprint" "Crystal:Crystal_SMD_3225-4Pin_3.2x2.5mm"
+		(property "Footprint" "cmb-cat:Crystal_SMD_Abracon_ABM8_3.2x2.5mm"
 			(at 86.36 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -13759,7 +13759,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://abracon.com/Resonators/abm8.pdf"
 			(at 86.36 77.47 0)
 			(hide yes)
 			(show_name no)
@@ -13770,8 +13770,74 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "25 MHz crystal, 10 pF CL, +/-10 ppm tol, +/-15 ppm stab -40/+85C, 50 ohm ESR, 3.2x2.5mm"
 			(at 86.36 77.47 0)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Field4" "Digikey"
+			(at 0 0 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Field5" "535-13468-1-ND"
+			(at 0 0 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Field6" "ABM8-25.000MHZ-10-D1G-T"
+			(at 0 0 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Field7" "Abracon"
+			(at 0 0 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Part Description" "Crystal 25 MHz 10pF 50 Ohm 4-SMD 3.2x2.5mm"
+			(at 0 0 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Price" "$0.75 @ qty 1 (Digikey, Nov 2026)"
+			(at 0 0 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -13986,7 +14052,7 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" ""
+		(property "Footprint" "MountingHole:MountingHole_2.7mm_M2.5_Pad"
 			(at 163.83 246.38 0)
 			(hide yes)
 			(show_name no)
@@ -19450,5 +19516,16 @@
 				)
 			)
 		)
+	)
+	(text "R36 limits crystal drive.\nLAN9252 min drive 300uW (Table 18-12) exceeds\nABM8 max 200uW. Note 32 allows 100uW with a\n500R series R, valid for C0<=5pF, CL<=12pF, R1<=80R.\nABM8-25.000MHZ-10-D1G-T: CL=10pF, R1=50R. C0 TBC.\n499R is the E96 value for the datasheet's 500R."
+		(exclude_from_sim no)
+		(at 68.58 50.8 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "9c3bc0a6-0556-45f8-98e7-275048819047")
 	)
 )
