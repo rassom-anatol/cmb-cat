@@ -4373,7 +4373,7 @@
 		)
 		(uuid "3ddcc432-5e81-4c33-89d8-b1f4bf6b560c")
 	)
-	(text "R36 limits crystal drive.\nLAN9252 min drive 300uW (Table 18-12) exceeds\nABM8 max 200uW. Note 32 allows 100uW with a\n500R series R, valid for C0<=5pF, CL<=12pF, R1<=80R.\nABM8-25.000MHZ-10-D1G-T: CL=10pF, R1=50R. C0 TBC.\n499R is the E96 value for the datasheet's 500R."
+	(text "R36 limits crystal drive.\nLAN9252 min drive 300uW (Table 18-12) exceeds\nABM8 max 100uW. Note 32 allows 100uW with a\n500R series R, valid for C0<=5pF, CL<=12pF, R1<=80R.\nABM8-25.000MHZ-10-D1G-T: C0=3.0pF, CL=10pF, R1=50R.\nAll three conditions met, but 100uW min equals the\nABM8 100uW max - no drive margin. Verify on hardware.\n499R is the E96 value for the datasheet's 500R."
 		(exclude_from_sim no)
 		(at 68.58 50.8 0)
 		(effects
@@ -10917,7 +10917,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "18p"
+		(property "Value" "15p"
 			(at 79.12 82.42 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -10939,7 +10939,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM1555C1H150JA01-01.pdf"
 			(at 76.2 81.28 0)
 			(hide yes)
 			(show_name no)
@@ -10950,8 +10950,75 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "15 pF C0G 50V +/-5% 0402 - LAN9252 crystal load cap, sized for ABM8 CL=10pF"
 			(at 76.2 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Field4" "Digikey"
+			(at 0 0 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Field5" "490-5888-1-ND"
+			(at 0 0 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Field6" "GRM1555C1H150JA01D"
+			(at 0 0 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Field7" "Murata"
+			(at 0 0 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Part Description" "Cap 15pF C0G 50V +/-5% 0402"
+			(at 0 0 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Price" "$0.10 @ qty 1 (Digikey, Nov 2026)"
+			(at 0 0 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -11248,7 +11315,7 @@
 				(justify left)
 			)
 		)
-		(property "Value" "18p"
+		(property "Value" "15p"
 			(at 99.44 82.42 0)
 			(show_name no)
 			(do_not_autoplace no)
@@ -11270,7 +11337,7 @@
 				)
 			)
 		)
-		(property "Datasheet" "~"
+		(property "Datasheet" "https://search.murata.co.jp/Ceramy/image/img/A01X/G101/ENG/GRM1555C1H150JA01-01.pdf"
 			(at 96.52 81.28 0)
 			(hide yes)
 			(show_name no)
@@ -11281,8 +11348,75 @@
 				)
 			)
 		)
-		(property "Description" ""
+		(property "Description" "15 pF C0G 50V +/-5% 0402 - LAN9252 crystal load cap, sized for ABM8 CL=10pF"
 			(at 96.52 81.28 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Field4" "Digikey"
+			(at 0 0 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Field5" "490-5888-1-ND"
+			(at 0 0 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Field6" "GRM1555C1H150JA01D"
+			(at 0 0 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Field7" "Murata"
+			(at 0 0 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Part Description" "Cap 15pF C0G 50V +/-5% 0402"
+			(at 0 0 0)
+			(hide yes)
+			(show_name no)
+			(do_not_autoplace no)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+			)
+		)
+		(property "Price" "$0.10 @ qty 1 (Digikey, Nov 2026)"
+			(at 0 0 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
