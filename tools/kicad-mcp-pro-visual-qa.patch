@@ -1,0 +1,137 @@
+# Fixes two geometry bugs in kicad-mcp-pro 4.20.5 sch_visual_qa / sch_cosmetic_score.
+# 1. USLedger (and A5) missing from PAPER_SIZES_MM -> fell back to A4, so every
+#    symbol past 297x210mm on a Ledger sheet was reported off-sheet.
+# 2. Multi-unit library symbols were measured at the union of ALL units' geometry
+#    instead of the placed unit, inflating the body box and causing phantom overlaps.
+# Apply with: patch -p1 -d <site-packages>/kicad_mcp < this file
+# Verified: 81 upstream unit tests pass; 233 false findings removed on a 9-sheet design.
+
+--- a/models/visual_qa.py
++++ b/models/visual_qa.py
+@@ -36,6 +36,7 @@
+ # Landscape paper extents (mm); portrait swaps width/height. Mirrors the table in
+ # tools/schematic.py but kept local so this pure module stays dependency-free.
+ PAPER_SIZES_MM: dict[str, tuple[float, float]] = {
++    "A5": (210.0, 148.0),
+     "A4": (297.0, 210.0),
+     "A3": (420.0, 297.0),
+     "A2": (594.0, 420.0),
+@@ -48,6 +49,7 @@
+     "E": (1117.6, 863.6),
+     "USLetter": (279.4, 215.9),
+     "USLegal": (355.6, 215.9),
++    "USLedger": (431.8, 279.4),
+ }
+ DEFAULT_PAPER = "A4"
+ 
+@@ -181,28 +183,49 @@
+     return Box(min(xs), min(ys), max(xs), max(ys))
+ 
+ 
+-def parse_lib_symbol_local_points(sch_text: str) -> dict[str, list[tuple[float, float]]]:
+-    """Return ``{lib_id: [local body points]}`` from the cached ``lib_symbols``.
++def parse_lib_symbol_local_points(
++    sch_text: str,
++) -> dict[str, dict[int, list[tuple[float, float]]]]:
++    """Return ``{lib_id: {unit: [local body points]}}`` from the cached ``lib_symbols``.
+ 
+     Collects the coordinates of every graphic (rectangle/polyline/circle/arc) and
+     pin in each cached library symbol. These are local symbol-library coordinates;
+     callers transform them per placement. Symbols absent from the cache (older
+     files, hand-written fixtures) simply do not appear in the map.
++
++    KiCad stores a multi-unit part as nested ``"<Name>_<unit>_<bodystyle>"``
++    sub-symbols inside one top-level ``"Lib:Name"`` entry, laid out side by side
++    in library coordinates. Collecting the whole entry would hand every placed
++    unit the union of all units' geometry -- a body box several times the size of
++    the unit actually drawn on the sheet, which then reports phantom overlaps
++    against everything near it. Points are therefore bucketed by unit number,
++    with unit 0 holding the common-to-all-units graphics.
+     """
+     lib_match = re.search(r"\(lib_symbols\b", sch_text)
+     if lib_match is None:
+         return {}
+     lib_block = extract_balanced_block(sch_text, lib_match.start())
+ 
+-    bodies: dict[str, list[tuple[float, float]]] = {}
++    bodies: dict[str, dict[int, list[tuple[float, float]]]] = {}
+     for sym_match in re.finditer(r'\(symbol\s+"([^"]+)"', lib_block):
+         name = sym_match.group(1)
+         # Only the top-level library entries carry a "Lib:Name" id; the nested
+-        # graphic units are named "Lib_0_1" etc. and are scanned via the block.
++        # graphic units are named "Lib_0_1" etc. and are scanned within it.
+         if ":" not in name:
+             continue
+         block = extract_balanced_block(lib_block, sym_match.start())
+-        bodies[name] = _collect_symbol_local_points(block)
++        units: dict[int, list[tuple[float, float]]] = {}
++        for unit_match in re.finditer(r'\(symbol\s+"[^"]+?_(\d+)_(\d+)"', block):
++            unit_no = int(unit_match.group(1))
++            unit_block = extract_balanced_block(block, unit_match.start())
++            unit_points = _collect_symbol_local_points(unit_block)
++            if unit_points:
++                units.setdefault(unit_no, []).extend(unit_points)
++        if not units:
++            # Hand-written fixtures and older files may carry graphics directly
++            # in the top-level entry with no unit sub-symbols at all.
++            units = {0: _collect_symbol_local_points(block)}
++        bodies[name] = units
+     return bodies
+ 
+ 
+@@ -236,12 +259,23 @@
+ 
+ def _instance_body_box(
+     lib_id: str,
++    unit: int,
+     x: float,
+     y: float,
+     angle: float,
+-    local_points: dict[str, list[tuple[float, float]]],
++    local_points: dict[str, dict[int, list[tuple[float, float]]]],
+ ) -> Box:
+-    points = local_points.get(lib_id)
++    units = local_points.get(lib_id) or {}
++    # Unit 0 is drawn for every unit; add only the unit actually placed here so a
++    # multi-unit part is measured at the size it occupies on this sheet.
++    points: list[tuple[float, float]] = list(units.get(0, ()))
++    if unit in units:
++        points.extend(units[unit])
++    elif not points:
++        # Unknown unit number: fall back to everything cached for the symbol
++        # rather than reporting it as having no body at all.
++        for unit_points in units.values():
++            points.extend(unit_points)
+     if not points:
+         # No cached graphic: a small square keeps the box non-empty without
+         # over-stating extent for symbols we cannot measure.
+@@ -323,8 +357,10 @@
+         y = float(at_match.group(2))
+         angle = float(at_match.group(3)) if at_match.group(3) else 0.0
+         lib_id = lib_match.group(1)
++        unit_match = re.search(r"\(unit\s+(\d+)\)", block)
++        unit = int(unit_match.group(1)) if unit_match else 1
+         reference, fields = _parse_instance_fields(block)
+-        body = _instance_body_box(lib_id, x, y, angle, local_points)
++        body = _instance_body_box(lib_id, unit, x, y, angle, local_points)
+         placed.append(PlacedSymbol(reference, lib_id, x, y, angle, body, tuple(fields)))
+     return placed
+ 
+--- a/tools/schematic_constants.py
++++ b/tools/schematic_constants.py
+@@ -69,6 +69,7 @@
+ # ---------------------------------------------------------------------------
+ 
+ PAPER_SIZES_MM: dict[str, tuple[float, float]] = {
++    "A5": (210.0, 148.0),
+     "A4": (297.0, 210.0),
+     "A3": (420.0, 297.0),
+     "A2": (594.0, 420.0),
+@@ -81,6 +82,7 @@
+     "E": (1117.6, 863.6),
+     "USLetter": (279.4, 215.9),
+     "USLegal": (355.6, 215.9),
++    "USLedger": (431.8, 279.4),
+ }
+ 
+ # ---------------------------------------------------------------------------
