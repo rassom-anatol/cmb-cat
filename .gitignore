@@ -6,3 +6,10 @@ fp-info-cache
 .history/
 *.bak
 .~lock.*#
+
+# kicad-mcp-pro generated reports (regenerated on demand)
+output/
+
+# Distributor API credentials - DIGIKEY_CLIENT_ID/SECRET, MOUSER_SEARCH_API_KEY
+.env
+.env.*
