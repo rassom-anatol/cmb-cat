@@ -1,0 +1,15 @@
+{
+  "mcpServers": {
+    "kicad": {
+      "command": "/home/rasid/.local/venvs/kicad-mcp-pro/bin/kicad-mcp-pro",
+      "args": [],
+      "env": {
+        "KICAD_MCP_PROJECT_DIR": "/home/rasid/Documents/RPi/cmb-cat",
+        "KICAD_MCP_PROFILE": "default",
+        "KICAD_MCP_OPERATING_MODE": "readonly",
+        "KICAD_MCP_TRANSPORT": "stdio"
+      },
+      "type": "stdio"
+    }
+  }
+}
