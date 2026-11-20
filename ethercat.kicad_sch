@@ -4373,6 +4373,17 @@
 		)
 		(uuid "3ddcc432-5e81-4c33-89d8-b1f4bf6b560c")
 	)
+	(text "R36 limits crystal drive.\nLAN9252 min drive 300uW (Table 18-12) exceeds\nABM8 max 200uW. Note 32 allows 100uW with a\n500R series R, valid for C0<=5pF, CL<=12pF, R1<=80R.\nABM8-25.000MHZ-10-D1G-T: CL=10pF, R1=50R. C0 TBC.\n499R is the E96 value for the datasheet's 500R."
+		(exclude_from_sim no)
+		(at 68.58 50.8 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left top)
+		)
+		(uuid "9c3bc0a6-0556-45f8-98e7-275048819047")
+	)
 	(text "1u and 470p close to pin 6"
 		(exclude_from_sim no)
 		(at 179.578 33.274 0)
@@ -10827,7 +10838,7 @@
 			)
 		)
 		(property "Value" "499R"
-			(at 105.918 72.644 90)
+			(at 102.616 77.216 90)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -13772,6 +13783,7 @@
 		)
 		(property "Description" "25 MHz crystal, 10 pF CL, +/-10 ppm tol, +/-15 ppm stab -40/+85C, 50 ohm ESR, 3.2x2.5mm"
 			(at 86.36 77.47 0)
+			(hide yes)
 			(show_name no)
 			(do_not_autoplace no)
 			(effects
@@ -19516,16 +19528,5 @@
 				)
 			)
 		)
-	)
-	(text "R36 limits crystal drive.\nLAN9252 min drive 300uW (Table 18-12) exceeds\nABM8 max 200uW. Note 32 allows 100uW with a\n500R series R, valid for C0<=5pF, CL<=12pF, R1<=80R.\nABM8-25.000MHZ-10-D1G-T: CL=10pF, R1=50R. C0 TBC.\n499R is the E96 value for the datasheet's 500R."
-		(exclude_from_sim no)
-		(at 68.58 50.8 0)
-		(effects
-			(font
-				(size 1.27 1.27)
-			)
-			(justify left top)
-		)
-		(uuid "9c3bc0a6-0556-45f8-98e7-275048819047")
 	)
 )
